@@ -226,7 +226,7 @@ Constructs DescribeLimitsOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeStreamInput
-  = DescribeStreamInput { "StreamName" :: StreamName, "Limit" :: NullOrUndefined (DescribeStreamInputLimit), "ExclusiveStartShardId" :: NullOrUndefined (ShardId) }
+  = DescribeStreamInput { "StreamName" :: StreamName, "Limit" :: Maybe (DescribeStreamInputLimit), "ExclusiveStartShardId" :: Maybe (ShardId) }
 ```
 
 <p>Represents the input for <code>DescribeStream</code>.</p>
@@ -251,7 +251,7 @@ Constructs DescribeStreamInput from required parameters
 #### `newDescribeStreamInput'`
 
 ``` purescript
-newDescribeStreamInput' :: StreamName -> ({ "StreamName" :: StreamName, "Limit" :: NullOrUndefined (DescribeStreamInputLimit), "ExclusiveStartShardId" :: NullOrUndefined (ShardId) } -> { "StreamName" :: StreamName, "Limit" :: NullOrUndefined (DescribeStreamInputLimit), "ExclusiveStartShardId" :: NullOrUndefined (ShardId) }) -> DescribeStreamInput
+newDescribeStreamInput' :: StreamName -> ({ "StreamName" :: StreamName, "Limit" :: Maybe (DescribeStreamInputLimit), "ExclusiveStartShardId" :: Maybe (ShardId) } -> { "StreamName" :: StreamName, "Limit" :: Maybe (DescribeStreamInputLimit), "ExclusiveStartShardId" :: Maybe (ShardId) }) -> DescribeStreamInput
 ```
 
 Constructs DescribeStreamInput's fields from required parameters
@@ -458,7 +458,7 @@ Encode EncryptionType
 
 ``` purescript
 newtype EnhancedMetrics
-  = EnhancedMetrics { "ShardLevelMetrics" :: NullOrUndefined (MetricsNameList) }
+  = EnhancedMetrics { "ShardLevelMetrics" :: Maybe (MetricsNameList) }
 ```
 
 <p>Represents enhanced metrics types.</p>
@@ -483,7 +483,7 @@ Constructs EnhancedMetrics from required parameters
 #### `newEnhancedMetrics'`
 
 ``` purescript
-newEnhancedMetrics' :: ({ "ShardLevelMetrics" :: NullOrUndefined (MetricsNameList) } -> { "ShardLevelMetrics" :: NullOrUndefined (MetricsNameList) }) -> EnhancedMetrics
+newEnhancedMetrics' :: ({ "ShardLevelMetrics" :: Maybe (MetricsNameList) } -> { "ShardLevelMetrics" :: Maybe (MetricsNameList) }) -> EnhancedMetrics
 ```
 
 Constructs EnhancedMetrics's fields from required parameters
@@ -508,7 +508,7 @@ Encode EnhancedMonitoringList
 
 ``` purescript
 newtype EnhancedMonitoringOutput
-  = EnhancedMonitoringOutput { "StreamName" :: NullOrUndefined (StreamName), "CurrentShardLevelMetrics" :: NullOrUndefined (MetricsNameList), "DesiredShardLevelMetrics" :: NullOrUndefined (MetricsNameList) }
+  = EnhancedMonitoringOutput { "StreamName" :: Maybe (StreamName), "CurrentShardLevelMetrics" :: Maybe (MetricsNameList), "DesiredShardLevelMetrics" :: Maybe (MetricsNameList) }
 ```
 
 <p>Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>.</p>
@@ -533,7 +533,7 @@ Constructs EnhancedMonitoringOutput from required parameters
 #### `newEnhancedMonitoringOutput'`
 
 ``` purescript
-newEnhancedMonitoringOutput' :: ({ "StreamName" :: NullOrUndefined (StreamName), "CurrentShardLevelMetrics" :: NullOrUndefined (MetricsNameList), "DesiredShardLevelMetrics" :: NullOrUndefined (MetricsNameList) } -> { "StreamName" :: NullOrUndefined (StreamName), "CurrentShardLevelMetrics" :: NullOrUndefined (MetricsNameList), "DesiredShardLevelMetrics" :: NullOrUndefined (MetricsNameList) }) -> EnhancedMonitoringOutput
+newEnhancedMonitoringOutput' :: ({ "StreamName" :: Maybe (StreamName), "CurrentShardLevelMetrics" :: Maybe (MetricsNameList), "DesiredShardLevelMetrics" :: Maybe (MetricsNameList) } -> { "StreamName" :: Maybe (StreamName), "CurrentShardLevelMetrics" :: Maybe (MetricsNameList), "DesiredShardLevelMetrics" :: Maybe (MetricsNameList) }) -> EnhancedMonitoringOutput
 ```
 
 Constructs EnhancedMonitoringOutput's fields from required parameters
@@ -574,7 +574,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype ExpiredIteratorException
-  = ExpiredIteratorException { message :: NullOrUndefined (ErrorMessage) }
+  = ExpiredIteratorException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The provided iterator exceeds the maximum age allowed.</p>
@@ -599,7 +599,7 @@ Constructs ExpiredIteratorException from required parameters
 #### `newExpiredIteratorException'`
 
 ``` purescript
-newExpiredIteratorException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ExpiredIteratorException
+newExpiredIteratorException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ExpiredIteratorException
 ```
 
 Constructs ExpiredIteratorException's fields from required parameters
@@ -608,7 +608,7 @@ Constructs ExpiredIteratorException's fields from required parameters
 
 ``` purescript
 newtype ExpiredNextTokenException
-  = ExpiredNextTokenException { message :: NullOrUndefined (ErrorMessage) }
+  = ExpiredNextTokenException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The pagination token passed to the <code>ListShards</code> operation is expired. For more information, see <a>ListShardsInput$NextToken</a>.</p>
@@ -633,7 +633,7 @@ Constructs ExpiredNextTokenException from required parameters
 #### `newExpiredNextTokenException'`
 
 ``` purescript
-newExpiredNextTokenException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ExpiredNextTokenException
+newExpiredNextTokenException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ExpiredNextTokenException
 ```
 
 Constructs ExpiredNextTokenException's fields from required parameters
@@ -642,7 +642,7 @@ Constructs ExpiredNextTokenException's fields from required parameters
 
 ``` purescript
 newtype GetRecordsInput
-  = GetRecordsInput { "ShardIterator" :: ShardIterator, "Limit" :: NullOrUndefined (GetRecordsInputLimit) }
+  = GetRecordsInput { "ShardIterator" :: ShardIterator, "Limit" :: Maybe (GetRecordsInputLimit) }
 ```
 
 <p>Represents the input for <a>GetRecords</a>.</p>
@@ -667,7 +667,7 @@ Constructs GetRecordsInput from required parameters
 #### `newGetRecordsInput'`
 
 ``` purescript
-newGetRecordsInput' :: ShardIterator -> ({ "ShardIterator" :: ShardIterator, "Limit" :: NullOrUndefined (GetRecordsInputLimit) } -> { "ShardIterator" :: ShardIterator, "Limit" :: NullOrUndefined (GetRecordsInputLimit) }) -> GetRecordsInput
+newGetRecordsInput' :: ShardIterator -> ({ "ShardIterator" :: ShardIterator, "Limit" :: Maybe (GetRecordsInputLimit) } -> { "ShardIterator" :: ShardIterator, "Limit" :: Maybe (GetRecordsInputLimit) }) -> GetRecordsInput
 ```
 
 Constructs GetRecordsInput's fields from required parameters
@@ -692,7 +692,7 @@ Encode GetRecordsInputLimit
 
 ``` purescript
 newtype GetRecordsOutput
-  = GetRecordsOutput { "Records" :: RecordList, "NextShardIterator" :: NullOrUndefined (ShardIterator), "MillisBehindLatest" :: NullOrUndefined (MillisBehindLatest) }
+  = GetRecordsOutput { "Records" :: RecordList, "NextShardIterator" :: Maybe (ShardIterator), "MillisBehindLatest" :: Maybe (MillisBehindLatest) }
 ```
 
 <p>Represents the output for <a>GetRecords</a>.</p>
@@ -717,7 +717,7 @@ Constructs GetRecordsOutput from required parameters
 #### `newGetRecordsOutput'`
 
 ``` purescript
-newGetRecordsOutput' :: RecordList -> ({ "Records" :: RecordList, "NextShardIterator" :: NullOrUndefined (ShardIterator), "MillisBehindLatest" :: NullOrUndefined (MillisBehindLatest) } -> { "Records" :: RecordList, "NextShardIterator" :: NullOrUndefined (ShardIterator), "MillisBehindLatest" :: NullOrUndefined (MillisBehindLatest) }) -> GetRecordsOutput
+newGetRecordsOutput' :: RecordList -> ({ "Records" :: RecordList, "NextShardIterator" :: Maybe (ShardIterator), "MillisBehindLatest" :: Maybe (MillisBehindLatest) } -> { "Records" :: RecordList, "NextShardIterator" :: Maybe (ShardIterator), "MillisBehindLatest" :: Maybe (MillisBehindLatest) }) -> GetRecordsOutput
 ```
 
 Constructs GetRecordsOutput's fields from required parameters
@@ -726,7 +726,7 @@ Constructs GetRecordsOutput's fields from required parameters
 
 ``` purescript
 newtype GetShardIteratorInput
-  = GetShardIteratorInput { "StreamName" :: StreamName, "ShardId" :: ShardId, "ShardIteratorType" :: ShardIteratorType, "StartingSequenceNumber" :: NullOrUndefined (SequenceNumber), "Timestamp" :: NullOrUndefined (Timestamp) }
+  = GetShardIteratorInput { "StreamName" :: StreamName, "ShardId" :: ShardId, "ShardIteratorType" :: ShardIteratorType, "StartingSequenceNumber" :: Maybe (SequenceNumber), "Timestamp" :: Maybe (Timestamp) }
 ```
 
 <p>Represents the input for <code>GetShardIterator</code>.</p>
@@ -751,7 +751,7 @@ Constructs GetShardIteratorInput from required parameters
 #### `newGetShardIteratorInput'`
 
 ``` purescript
-newGetShardIteratorInput' :: ShardId -> ShardIteratorType -> StreamName -> ({ "StreamName" :: StreamName, "ShardId" :: ShardId, "ShardIteratorType" :: ShardIteratorType, "StartingSequenceNumber" :: NullOrUndefined (SequenceNumber), "Timestamp" :: NullOrUndefined (Timestamp) } -> { "StreamName" :: StreamName, "ShardId" :: ShardId, "ShardIteratorType" :: ShardIteratorType, "StartingSequenceNumber" :: NullOrUndefined (SequenceNumber), "Timestamp" :: NullOrUndefined (Timestamp) }) -> GetShardIteratorInput
+newGetShardIteratorInput' :: ShardId -> ShardIteratorType -> StreamName -> ({ "StreamName" :: StreamName, "ShardId" :: ShardId, "ShardIteratorType" :: ShardIteratorType, "StartingSequenceNumber" :: Maybe (SequenceNumber), "Timestamp" :: Maybe (Timestamp) } -> { "StreamName" :: StreamName, "ShardId" :: ShardId, "ShardIteratorType" :: ShardIteratorType, "StartingSequenceNumber" :: Maybe (SequenceNumber), "Timestamp" :: Maybe (Timestamp) }) -> GetShardIteratorInput
 ```
 
 Constructs GetShardIteratorInput's fields from required parameters
@@ -760,7 +760,7 @@ Constructs GetShardIteratorInput's fields from required parameters
 
 ``` purescript
 newtype GetShardIteratorOutput
-  = GetShardIteratorOutput { "ShardIterator" :: NullOrUndefined (ShardIterator) }
+  = GetShardIteratorOutput { "ShardIterator" :: Maybe (ShardIterator) }
 ```
 
 <p>Represents the output for <code>GetShardIterator</code>.</p>
@@ -785,7 +785,7 @@ Constructs GetShardIteratorOutput from required parameters
 #### `newGetShardIteratorOutput'`
 
 ``` purescript
-newGetShardIteratorOutput' :: ({ "ShardIterator" :: NullOrUndefined (ShardIterator) } -> { "ShardIterator" :: NullOrUndefined (ShardIterator) }) -> GetShardIteratorOutput
+newGetShardIteratorOutput' :: ({ "ShardIterator" :: Maybe (ShardIterator) } -> { "ShardIterator" :: Maybe (ShardIterator) }) -> GetShardIteratorOutput
 ```
 
 Constructs GetShardIteratorOutput's fields from required parameters
@@ -878,7 +878,7 @@ Constructs IncreaseStreamRetentionPeriodInput's fields from required parameters
 
 ``` purescript
 newtype InvalidArgumentException
-  = InvalidArgumentException { message :: NullOrUndefined (ErrorMessage) }
+  = InvalidArgumentException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
@@ -903,7 +903,7 @@ Constructs InvalidArgumentException from required parameters
 #### `newInvalidArgumentException'`
 
 ``` purescript
-newInvalidArgumentException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> InvalidArgumentException
+newInvalidArgumentException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> InvalidArgumentException
 ```
 
 Constructs InvalidArgumentException's fields from required parameters
@@ -912,7 +912,7 @@ Constructs InvalidArgumentException's fields from required parameters
 
 ``` purescript
 newtype KMSAccessDeniedException
-  = KMSAccessDeniedException { message :: NullOrUndefined (ErrorMessage) }
+  = KMSAccessDeniedException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
@@ -937,7 +937,7 @@ Constructs KMSAccessDeniedException from required parameters
 #### `newKMSAccessDeniedException'`
 
 ``` purescript
-newKMSAccessDeniedException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> KMSAccessDeniedException
+newKMSAccessDeniedException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> KMSAccessDeniedException
 ```
 
 Constructs KMSAccessDeniedException's fields from required parameters
@@ -946,7 +946,7 @@ Constructs KMSAccessDeniedException's fields from required parameters
 
 ``` purescript
 newtype KMSDisabledException
-  = KMSDisabledException { message :: NullOrUndefined (ErrorMessage) }
+  = KMSDisabledException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The request was rejected because the specified customer master key (CMK) isn't enabled.</p>
@@ -971,7 +971,7 @@ Constructs KMSDisabledException from required parameters
 #### `newKMSDisabledException'`
 
 ``` purescript
-newKMSDisabledException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> KMSDisabledException
+newKMSDisabledException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> KMSDisabledException
 ```
 
 Constructs KMSDisabledException's fields from required parameters
@@ -980,7 +980,7 @@ Constructs KMSDisabledException's fields from required parameters
 
 ``` purescript
 newtype KMSInvalidStateException
-  = KMSInvalidStateException { message :: NullOrUndefined (ErrorMessage) }
+  = KMSInvalidStateException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -1005,7 +1005,7 @@ Constructs KMSInvalidStateException from required parameters
 #### `newKMSInvalidStateException'`
 
 ``` purescript
-newKMSInvalidStateException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> KMSInvalidStateException
+newKMSInvalidStateException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> KMSInvalidStateException
 ```
 
 Constructs KMSInvalidStateException's fields from required parameters
@@ -1014,7 +1014,7 @@ Constructs KMSInvalidStateException's fields from required parameters
 
 ``` purescript
 newtype KMSNotFoundException
-  = KMSNotFoundException { message :: NullOrUndefined (ErrorMessage) }
+  = KMSNotFoundException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The request was rejected because the specified entity or resource can't be found.</p>
@@ -1039,7 +1039,7 @@ Constructs KMSNotFoundException from required parameters
 #### `newKMSNotFoundException'`
 
 ``` purescript
-newKMSNotFoundException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> KMSNotFoundException
+newKMSNotFoundException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> KMSNotFoundException
 ```
 
 Constructs KMSNotFoundException's fields from required parameters
@@ -1048,7 +1048,7 @@ Constructs KMSNotFoundException's fields from required parameters
 
 ``` purescript
 newtype KMSOptInRequired
-  = KMSOptInRequired { message :: NullOrUndefined (ErrorMessage) }
+  = KMSOptInRequired { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The AWS access key ID needs a subscription for the service.</p>
@@ -1073,7 +1073,7 @@ Constructs KMSOptInRequired from required parameters
 #### `newKMSOptInRequired'`
 
 ``` purescript
-newKMSOptInRequired' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> KMSOptInRequired
+newKMSOptInRequired' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> KMSOptInRequired
 ```
 
 Constructs KMSOptInRequired's fields from required parameters
@@ -1082,7 +1082,7 @@ Constructs KMSOptInRequired's fields from required parameters
 
 ``` purescript
 newtype KMSThrottlingException
-  = KMSThrottlingException { message :: NullOrUndefined (ErrorMessage) }
+  = KMSThrottlingException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The request was denied due to request throttling. For more information about throttling, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -1107,7 +1107,7 @@ Constructs KMSThrottlingException from required parameters
 #### `newKMSThrottlingException'`
 
 ``` purescript
-newKMSThrottlingException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> KMSThrottlingException
+newKMSThrottlingException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> KMSThrottlingException
 ```
 
 Constructs KMSThrottlingException's fields from required parameters
@@ -1132,7 +1132,7 @@ Encode KeyId
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { message :: NullOrUndefined (ErrorMessage) }
+  = LimitExceededException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
@@ -1157,7 +1157,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> LimitExceededException
+newLimitExceededException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -1166,7 +1166,7 @@ Constructs LimitExceededException's fields from required parameters
 
 ``` purescript
 newtype ListShardsInput
-  = ListShardsInput { "StreamName" :: NullOrUndefined (StreamName), "NextToken" :: NullOrUndefined (NextToken), "ExclusiveStartShardId" :: NullOrUndefined (ShardId), "MaxResults" :: NullOrUndefined (ListShardsInputLimit), "StreamCreationTimestamp" :: NullOrUndefined (Timestamp) }
+  = ListShardsInput { "StreamName" :: Maybe (StreamName), "NextToken" :: Maybe (NextToken), "ExclusiveStartShardId" :: Maybe (ShardId), "MaxResults" :: Maybe (ListShardsInputLimit), "StreamCreationTimestamp" :: Maybe (Timestamp) }
 ```
 
 ##### Instances
@@ -1189,7 +1189,7 @@ Constructs ListShardsInput from required parameters
 #### `newListShardsInput'`
 
 ``` purescript
-newListShardsInput' :: ({ "StreamName" :: NullOrUndefined (StreamName), "NextToken" :: NullOrUndefined (NextToken), "ExclusiveStartShardId" :: NullOrUndefined (ShardId), "MaxResults" :: NullOrUndefined (ListShardsInputLimit), "StreamCreationTimestamp" :: NullOrUndefined (Timestamp) } -> { "StreamName" :: NullOrUndefined (StreamName), "NextToken" :: NullOrUndefined (NextToken), "ExclusiveStartShardId" :: NullOrUndefined (ShardId), "MaxResults" :: NullOrUndefined (ListShardsInputLimit), "StreamCreationTimestamp" :: NullOrUndefined (Timestamp) }) -> ListShardsInput
+newListShardsInput' :: ({ "StreamName" :: Maybe (StreamName), "NextToken" :: Maybe (NextToken), "ExclusiveStartShardId" :: Maybe (ShardId), "MaxResults" :: Maybe (ListShardsInputLimit), "StreamCreationTimestamp" :: Maybe (Timestamp) } -> { "StreamName" :: Maybe (StreamName), "NextToken" :: Maybe (NextToken), "ExclusiveStartShardId" :: Maybe (ShardId), "MaxResults" :: Maybe (ListShardsInputLimit), "StreamCreationTimestamp" :: Maybe (Timestamp) }) -> ListShardsInput
 ```
 
 Constructs ListShardsInput's fields from required parameters
@@ -1214,7 +1214,7 @@ Encode ListShardsInputLimit
 
 ``` purescript
 newtype ListShardsOutput
-  = ListShardsOutput { "Shards" :: NullOrUndefined (ShardList), "NextToken" :: NullOrUndefined (NextToken) }
+  = ListShardsOutput { "Shards" :: Maybe (ShardList), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1237,7 +1237,7 @@ Constructs ListShardsOutput from required parameters
 #### `newListShardsOutput'`
 
 ``` purescript
-newListShardsOutput' :: ({ "Shards" :: NullOrUndefined (ShardList), "NextToken" :: NullOrUndefined (NextToken) } -> { "Shards" :: NullOrUndefined (ShardList), "NextToken" :: NullOrUndefined (NextToken) }) -> ListShardsOutput
+newListShardsOutput' :: ({ "Shards" :: Maybe (ShardList), "NextToken" :: Maybe (NextToken) } -> { "Shards" :: Maybe (ShardList), "NextToken" :: Maybe (NextToken) }) -> ListShardsOutput
 ```
 
 Constructs ListShardsOutput's fields from required parameters
@@ -1246,7 +1246,7 @@ Constructs ListShardsOutput's fields from required parameters
 
 ``` purescript
 newtype ListStreamsInput
-  = ListStreamsInput { "Limit" :: NullOrUndefined (ListStreamsInputLimit), "ExclusiveStartStreamName" :: NullOrUndefined (StreamName) }
+  = ListStreamsInput { "Limit" :: Maybe (ListStreamsInputLimit), "ExclusiveStartStreamName" :: Maybe (StreamName) }
 ```
 
 <p>Represents the input for <code>ListStreams</code>.</p>
@@ -1271,7 +1271,7 @@ Constructs ListStreamsInput from required parameters
 #### `newListStreamsInput'`
 
 ``` purescript
-newListStreamsInput' :: ({ "Limit" :: NullOrUndefined (ListStreamsInputLimit), "ExclusiveStartStreamName" :: NullOrUndefined (StreamName) } -> { "Limit" :: NullOrUndefined (ListStreamsInputLimit), "ExclusiveStartStreamName" :: NullOrUndefined (StreamName) }) -> ListStreamsInput
+newListStreamsInput' :: ({ "Limit" :: Maybe (ListStreamsInputLimit), "ExclusiveStartStreamName" :: Maybe (StreamName) } -> { "Limit" :: Maybe (ListStreamsInputLimit), "ExclusiveStartStreamName" :: Maybe (StreamName) }) -> ListStreamsInput
 ```
 
 Constructs ListStreamsInput's fields from required parameters
@@ -1330,7 +1330,7 @@ Constructs ListStreamsOutput's fields from required parameters
 
 ``` purescript
 newtype ListTagsForStreamInput
-  = ListTagsForStreamInput { "StreamName" :: StreamName, "ExclusiveStartTagKey" :: NullOrUndefined (TagKey), "Limit" :: NullOrUndefined (ListTagsForStreamInputLimit) }
+  = ListTagsForStreamInput { "StreamName" :: StreamName, "ExclusiveStartTagKey" :: Maybe (TagKey), "Limit" :: Maybe (ListTagsForStreamInputLimit) }
 ```
 
 <p>Represents the input for <code>ListTagsForStream</code>.</p>
@@ -1355,7 +1355,7 @@ Constructs ListTagsForStreamInput from required parameters
 #### `newListTagsForStreamInput'`
 
 ``` purescript
-newListTagsForStreamInput' :: StreamName -> ({ "StreamName" :: StreamName, "ExclusiveStartTagKey" :: NullOrUndefined (TagKey), "Limit" :: NullOrUndefined (ListTagsForStreamInputLimit) } -> { "StreamName" :: StreamName, "ExclusiveStartTagKey" :: NullOrUndefined (TagKey), "Limit" :: NullOrUndefined (ListTagsForStreamInputLimit) }) -> ListTagsForStreamInput
+newListTagsForStreamInput' :: StreamName -> ({ "StreamName" :: StreamName, "ExclusiveStartTagKey" :: Maybe (TagKey), "Limit" :: Maybe (ListTagsForStreamInputLimit) } -> { "StreamName" :: StreamName, "ExclusiveStartTagKey" :: Maybe (TagKey), "Limit" :: Maybe (ListTagsForStreamInputLimit) }) -> ListTagsForStreamInput
 ```
 
 Constructs ListTagsForStreamInput's fields from required parameters
@@ -1544,7 +1544,7 @@ Encode PositiveIntegerObject
 
 ``` purescript
 newtype ProvisionedThroughputExceededException
-  = ProvisionedThroughputExceededException { message :: NullOrUndefined (ErrorMessage) }
+  = ProvisionedThroughputExceededException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="http://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error Retries and Exponential Backoff in AWS</a> in the <i>AWS General Reference</i>.</p>
@@ -1569,7 +1569,7 @@ Constructs ProvisionedThroughputExceededException from required parameters
 #### `newProvisionedThroughputExceededException'`
 
 ``` purescript
-newProvisionedThroughputExceededException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ProvisionedThroughputExceededException
+newProvisionedThroughputExceededException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ProvisionedThroughputExceededException
 ```
 
 Constructs ProvisionedThroughputExceededException's fields from required parameters
@@ -1578,7 +1578,7 @@ Constructs ProvisionedThroughputExceededException's fields from required paramet
 
 ``` purescript
 newtype PutRecordInput
-  = PutRecordInput { "StreamName" :: StreamName, "Data" :: Data, "PartitionKey" :: PartitionKey, "ExplicitHashKey" :: NullOrUndefined (HashKey), "SequenceNumberForOrdering" :: NullOrUndefined (SequenceNumber) }
+  = PutRecordInput { "StreamName" :: StreamName, "Data" :: Data, "PartitionKey" :: PartitionKey, "ExplicitHashKey" :: Maybe (HashKey), "SequenceNumberForOrdering" :: Maybe (SequenceNumber) }
 ```
 
 <p>Represents the input for <code>PutRecord</code>.</p>
@@ -1603,7 +1603,7 @@ Constructs PutRecordInput from required parameters
 #### `newPutRecordInput'`
 
 ``` purescript
-newPutRecordInput' :: Data -> PartitionKey -> StreamName -> ({ "StreamName" :: StreamName, "Data" :: Data, "PartitionKey" :: PartitionKey, "ExplicitHashKey" :: NullOrUndefined (HashKey), "SequenceNumberForOrdering" :: NullOrUndefined (SequenceNumber) } -> { "StreamName" :: StreamName, "Data" :: Data, "PartitionKey" :: PartitionKey, "ExplicitHashKey" :: NullOrUndefined (HashKey), "SequenceNumberForOrdering" :: NullOrUndefined (SequenceNumber) }) -> PutRecordInput
+newPutRecordInput' :: Data -> PartitionKey -> StreamName -> ({ "StreamName" :: StreamName, "Data" :: Data, "PartitionKey" :: PartitionKey, "ExplicitHashKey" :: Maybe (HashKey), "SequenceNumberForOrdering" :: Maybe (SequenceNumber) } -> { "StreamName" :: StreamName, "Data" :: Data, "PartitionKey" :: PartitionKey, "ExplicitHashKey" :: Maybe (HashKey), "SequenceNumberForOrdering" :: Maybe (SequenceNumber) }) -> PutRecordInput
 ```
 
 Constructs PutRecordInput's fields from required parameters
@@ -1612,7 +1612,7 @@ Constructs PutRecordInput's fields from required parameters
 
 ``` purescript
 newtype PutRecordOutput
-  = PutRecordOutput { "ShardId" :: ShardId, "SequenceNumber" :: SequenceNumber, "EncryptionType" :: NullOrUndefined (EncryptionType) }
+  = PutRecordOutput { "ShardId" :: ShardId, "SequenceNumber" :: SequenceNumber, "EncryptionType" :: Maybe (EncryptionType) }
 ```
 
 <p>Represents the output for <code>PutRecord</code>.</p>
@@ -1637,7 +1637,7 @@ Constructs PutRecordOutput from required parameters
 #### `newPutRecordOutput'`
 
 ``` purescript
-newPutRecordOutput' :: SequenceNumber -> ShardId -> ({ "ShardId" :: ShardId, "SequenceNumber" :: SequenceNumber, "EncryptionType" :: NullOrUndefined (EncryptionType) } -> { "ShardId" :: ShardId, "SequenceNumber" :: SequenceNumber, "EncryptionType" :: NullOrUndefined (EncryptionType) }) -> PutRecordOutput
+newPutRecordOutput' :: SequenceNumber -> ShardId -> ({ "ShardId" :: ShardId, "SequenceNumber" :: SequenceNumber, "EncryptionType" :: Maybe (EncryptionType) } -> { "ShardId" :: ShardId, "SequenceNumber" :: SequenceNumber, "EncryptionType" :: Maybe (EncryptionType) }) -> PutRecordOutput
 ```
 
 Constructs PutRecordOutput's fields from required parameters
@@ -1680,7 +1680,7 @@ Constructs PutRecordsInput's fields from required parameters
 
 ``` purescript
 newtype PutRecordsOutput
-  = PutRecordsOutput { "FailedRecordCount" :: NullOrUndefined (PositiveIntegerObject), "Records" :: PutRecordsResultEntryList, "EncryptionType" :: NullOrUndefined (EncryptionType) }
+  = PutRecordsOutput { "FailedRecordCount" :: Maybe (PositiveIntegerObject), "Records" :: PutRecordsResultEntryList, "EncryptionType" :: Maybe (EncryptionType) }
 ```
 
 <p> <code>PutRecords</code> results.</p>
@@ -1705,7 +1705,7 @@ Constructs PutRecordsOutput from required parameters
 #### `newPutRecordsOutput'`
 
 ``` purescript
-newPutRecordsOutput' :: PutRecordsResultEntryList -> ({ "FailedRecordCount" :: NullOrUndefined (PositiveIntegerObject), "Records" :: PutRecordsResultEntryList, "EncryptionType" :: NullOrUndefined (EncryptionType) } -> { "FailedRecordCount" :: NullOrUndefined (PositiveIntegerObject), "Records" :: PutRecordsResultEntryList, "EncryptionType" :: NullOrUndefined (EncryptionType) }) -> PutRecordsOutput
+newPutRecordsOutput' :: PutRecordsResultEntryList -> ({ "FailedRecordCount" :: Maybe (PositiveIntegerObject), "Records" :: PutRecordsResultEntryList, "EncryptionType" :: Maybe (EncryptionType) } -> { "FailedRecordCount" :: Maybe (PositiveIntegerObject), "Records" :: PutRecordsResultEntryList, "EncryptionType" :: Maybe (EncryptionType) }) -> PutRecordsOutput
 ```
 
 Constructs PutRecordsOutput's fields from required parameters
@@ -1714,7 +1714,7 @@ Constructs PutRecordsOutput's fields from required parameters
 
 ``` purescript
 newtype PutRecordsRequestEntry
-  = PutRecordsRequestEntry { "Data" :: Data, "ExplicitHashKey" :: NullOrUndefined (HashKey), "PartitionKey" :: PartitionKey }
+  = PutRecordsRequestEntry { "Data" :: Data, "ExplicitHashKey" :: Maybe (HashKey), "PartitionKey" :: PartitionKey }
 ```
 
 <p>Represents the output for <code>PutRecords</code>.</p>
@@ -1739,7 +1739,7 @@ Constructs PutRecordsRequestEntry from required parameters
 #### `newPutRecordsRequestEntry'`
 
 ``` purescript
-newPutRecordsRequestEntry' :: Data -> PartitionKey -> ({ "Data" :: Data, "ExplicitHashKey" :: NullOrUndefined (HashKey), "PartitionKey" :: PartitionKey } -> { "Data" :: Data, "ExplicitHashKey" :: NullOrUndefined (HashKey), "PartitionKey" :: PartitionKey }) -> PutRecordsRequestEntry
+newPutRecordsRequestEntry' :: Data -> PartitionKey -> ({ "Data" :: Data, "ExplicitHashKey" :: Maybe (HashKey), "PartitionKey" :: PartitionKey } -> { "Data" :: Data, "ExplicitHashKey" :: Maybe (HashKey), "PartitionKey" :: PartitionKey }) -> PutRecordsRequestEntry
 ```
 
 Constructs PutRecordsRequestEntry's fields from required parameters
@@ -1764,7 +1764,7 @@ Encode PutRecordsRequestEntryList
 
 ``` purescript
 newtype PutRecordsResultEntry
-  = PutRecordsResultEntry { "SequenceNumber" :: NullOrUndefined (SequenceNumber), "ShardId" :: NullOrUndefined (ShardId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }
+  = PutRecordsResultEntry { "SequenceNumber" :: Maybe (SequenceNumber), "ShardId" :: Maybe (ShardId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }
 ```
 
 <p>Represents the result of an individual record from a <code>PutRecords</code> request. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to the stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.</p>
@@ -1789,7 +1789,7 @@ Constructs PutRecordsResultEntry from required parameters
 #### `newPutRecordsResultEntry'`
 
 ``` purescript
-newPutRecordsResultEntry' :: ({ "SequenceNumber" :: NullOrUndefined (SequenceNumber), "ShardId" :: NullOrUndefined (ShardId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> { "SequenceNumber" :: NullOrUndefined (SequenceNumber), "ShardId" :: NullOrUndefined (ShardId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }) -> PutRecordsResultEntry
+newPutRecordsResultEntry' :: ({ "SequenceNumber" :: Maybe (SequenceNumber), "ShardId" :: Maybe (ShardId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) } -> { "SequenceNumber" :: Maybe (SequenceNumber), "ShardId" :: Maybe (ShardId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }) -> PutRecordsResultEntry
 ```
 
 Constructs PutRecordsResultEntry's fields from required parameters
@@ -1814,7 +1814,7 @@ Encode PutRecordsResultEntryList
 
 ``` purescript
 newtype Record''
-  = Record'' { "SequenceNumber" :: SequenceNumber, "ApproximateArrivalTimestamp" :: NullOrUndefined (Timestamp), "Data" :: Data, "PartitionKey" :: PartitionKey, "EncryptionType" :: NullOrUndefined (EncryptionType) }
+  = Record'' { "SequenceNumber" :: SequenceNumber, "ApproximateArrivalTimestamp" :: Maybe (Timestamp), "Data" :: Data, "PartitionKey" :: PartitionKey, "EncryptionType" :: Maybe (EncryptionType) }
 ```
 
 <p>The unit of data of the Kinesis data stream, which is composed of a sequence number, a partition key, and a data blob.</p>
@@ -1839,7 +1839,7 @@ Constructs Record'' from required parameters
 #### `newRecord'''`
 
 ``` purescript
-newRecord''' :: Data -> PartitionKey -> SequenceNumber -> ({ "SequenceNumber" :: SequenceNumber, "ApproximateArrivalTimestamp" :: NullOrUndefined (Timestamp), "Data" :: Data, "PartitionKey" :: PartitionKey, "EncryptionType" :: NullOrUndefined (EncryptionType) } -> { "SequenceNumber" :: SequenceNumber, "ApproximateArrivalTimestamp" :: NullOrUndefined (Timestamp), "Data" :: Data, "PartitionKey" :: PartitionKey, "EncryptionType" :: NullOrUndefined (EncryptionType) }) -> Record''
+newRecord''' :: Data -> PartitionKey -> SequenceNumber -> ({ "SequenceNumber" :: SequenceNumber, "ApproximateArrivalTimestamp" :: Maybe (Timestamp), "Data" :: Data, "PartitionKey" :: PartitionKey, "EncryptionType" :: Maybe (EncryptionType) } -> { "SequenceNumber" :: SequenceNumber, "ApproximateArrivalTimestamp" :: Maybe (Timestamp), "Data" :: Data, "PartitionKey" :: PartitionKey, "EncryptionType" :: Maybe (EncryptionType) }) -> Record''
 ```
 
 Constructs Record'''s fields from required parameters
@@ -1898,7 +1898,7 @@ Constructs RemoveTagsFromStreamInput's fields from required parameters
 
 ``` purescript
 newtype ResourceInUseException
-  = ResourceInUseException { message :: NullOrUndefined (ErrorMessage) }
+  = ResourceInUseException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
@@ -1923,7 +1923,7 @@ Constructs ResourceInUseException from required parameters
 #### `newResourceInUseException'`
 
 ``` purescript
-newResourceInUseException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ResourceInUseException
+newResourceInUseException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ResourceInUseException
 ```
 
 Constructs ResourceInUseException's fields from required parameters
@@ -1932,7 +1932,7 @@ Constructs ResourceInUseException's fields from required parameters
 
 ``` purescript
 newtype ResourceNotFoundException
-  = ResourceNotFoundException { message :: NullOrUndefined (ErrorMessage) }
+  = ResourceNotFoundException { message :: Maybe (ErrorMessage) }
 ```
 
 <p>The requested resource could not be found. The stream might not be specified correctly.</p>
@@ -1957,7 +1957,7 @@ Constructs ResourceNotFoundException from required parameters
 #### `newResourceNotFoundException'`
 
 ``` purescript
-newResourceNotFoundException' :: ({ message :: NullOrUndefined (ErrorMessage) } -> { message :: NullOrUndefined (ErrorMessage) }) -> ResourceNotFoundException
+newResourceNotFoundException' :: ({ message :: Maybe (ErrorMessage) } -> { message :: Maybe (ErrorMessage) }) -> ResourceNotFoundException
 ```
 
 Constructs ResourceNotFoundException's fields from required parameters
@@ -2014,7 +2014,7 @@ Encode SequenceNumber
 
 ``` purescript
 newtype SequenceNumberRange
-  = SequenceNumberRange { "StartingSequenceNumber" :: SequenceNumber, "EndingSequenceNumber" :: NullOrUndefined (SequenceNumber) }
+  = SequenceNumberRange { "StartingSequenceNumber" :: SequenceNumber, "EndingSequenceNumber" :: Maybe (SequenceNumber) }
 ```
 
 <p>The range of possible sequence numbers for the shard.</p>
@@ -2039,7 +2039,7 @@ Constructs SequenceNumberRange from required parameters
 #### `newSequenceNumberRange'`
 
 ``` purescript
-newSequenceNumberRange' :: SequenceNumber -> ({ "StartingSequenceNumber" :: SequenceNumber, "EndingSequenceNumber" :: NullOrUndefined (SequenceNumber) } -> { "StartingSequenceNumber" :: SequenceNumber, "EndingSequenceNumber" :: NullOrUndefined (SequenceNumber) }) -> SequenceNumberRange
+newSequenceNumberRange' :: SequenceNumber -> ({ "StartingSequenceNumber" :: SequenceNumber, "EndingSequenceNumber" :: Maybe (SequenceNumber) } -> { "StartingSequenceNumber" :: SequenceNumber, "EndingSequenceNumber" :: Maybe (SequenceNumber) }) -> SequenceNumberRange
 ```
 
 Constructs SequenceNumberRange's fields from required parameters
@@ -2048,7 +2048,7 @@ Constructs SequenceNumberRange's fields from required parameters
 
 ``` purescript
 newtype Shard
-  = Shard { "ShardId" :: ShardId, "ParentShardId" :: NullOrUndefined (ShardId), "AdjacentParentShardId" :: NullOrUndefined (ShardId), "HashKeyRange" :: HashKeyRange, "SequenceNumberRange" :: SequenceNumberRange }
+  = Shard { "ShardId" :: ShardId, "ParentShardId" :: Maybe (ShardId), "AdjacentParentShardId" :: Maybe (ShardId), "HashKeyRange" :: HashKeyRange, "SequenceNumberRange" :: SequenceNumberRange }
 ```
 
 <p>A uniquely identified group of data records in a Kinesis data stream.</p>
@@ -2073,7 +2073,7 @@ Constructs Shard from required parameters
 #### `newShard'`
 
 ``` purescript
-newShard' :: HashKeyRange -> SequenceNumberRange -> ShardId -> ({ "ShardId" :: ShardId, "ParentShardId" :: NullOrUndefined (ShardId), "AdjacentParentShardId" :: NullOrUndefined (ShardId), "HashKeyRange" :: HashKeyRange, "SequenceNumberRange" :: SequenceNumberRange } -> { "ShardId" :: ShardId, "ParentShardId" :: NullOrUndefined (ShardId), "AdjacentParentShardId" :: NullOrUndefined (ShardId), "HashKeyRange" :: HashKeyRange, "SequenceNumberRange" :: SequenceNumberRange }) -> Shard
+newShard' :: HashKeyRange -> SequenceNumberRange -> ShardId -> ({ "ShardId" :: ShardId, "ParentShardId" :: Maybe (ShardId), "AdjacentParentShardId" :: Maybe (ShardId), "HashKeyRange" :: HashKeyRange, "SequenceNumberRange" :: SequenceNumberRange } -> { "ShardId" :: ShardId, "ParentShardId" :: Maybe (ShardId), "AdjacentParentShardId" :: Maybe (ShardId), "HashKeyRange" :: HashKeyRange, "SequenceNumberRange" :: SequenceNumberRange }) -> Shard
 ```
 
 Constructs Shard's fields from required parameters
@@ -2276,7 +2276,7 @@ Encode StreamARN
 
 ``` purescript
 newtype StreamDescription
-  = StreamDescription { "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "Shards" :: ShardList, "HasMoreShards" :: BooleanObject, "RetentionPeriodHours" :: RetentionPeriodHours, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: NullOrUndefined (EncryptionType), "KeyId" :: NullOrUndefined (KeyId) }
+  = StreamDescription { "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "Shards" :: ShardList, "HasMoreShards" :: BooleanObject, "RetentionPeriodHours" :: RetentionPeriodHours, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: Maybe (EncryptionType), "KeyId" :: Maybe (KeyId) }
 ```
 
 <p>Represents the output for <a>DescribeStream</a>.</p>
@@ -2301,7 +2301,7 @@ Constructs StreamDescription from required parameters
 #### `newStreamDescription'`
 
 ``` purescript
-newStreamDescription' :: EnhancedMonitoringList -> BooleanObject -> RetentionPeriodHours -> ShardList -> StreamARN -> Timestamp -> StreamName -> StreamStatus -> ({ "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "Shards" :: ShardList, "HasMoreShards" :: BooleanObject, "RetentionPeriodHours" :: RetentionPeriodHours, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: NullOrUndefined (EncryptionType), "KeyId" :: NullOrUndefined (KeyId) } -> { "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "Shards" :: ShardList, "HasMoreShards" :: BooleanObject, "RetentionPeriodHours" :: RetentionPeriodHours, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: NullOrUndefined (EncryptionType), "KeyId" :: NullOrUndefined (KeyId) }) -> StreamDescription
+newStreamDescription' :: EnhancedMonitoringList -> BooleanObject -> RetentionPeriodHours -> ShardList -> StreamARN -> Timestamp -> StreamName -> StreamStatus -> ({ "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "Shards" :: ShardList, "HasMoreShards" :: BooleanObject, "RetentionPeriodHours" :: RetentionPeriodHours, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: Maybe (EncryptionType), "KeyId" :: Maybe (KeyId) } -> { "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "Shards" :: ShardList, "HasMoreShards" :: BooleanObject, "RetentionPeriodHours" :: RetentionPeriodHours, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: Maybe (EncryptionType), "KeyId" :: Maybe (KeyId) }) -> StreamDescription
 ```
 
 Constructs StreamDescription's fields from required parameters
@@ -2310,7 +2310,7 @@ Constructs StreamDescription's fields from required parameters
 
 ``` purescript
 newtype StreamDescriptionSummary
-  = StreamDescriptionSummary { "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "RetentionPeriodHours" :: PositiveIntegerObject, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: NullOrUndefined (EncryptionType), "KeyId" :: NullOrUndefined (KeyId), "OpenShardCount" :: ShardCountObject }
+  = StreamDescriptionSummary { "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "RetentionPeriodHours" :: PositiveIntegerObject, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: Maybe (EncryptionType), "KeyId" :: Maybe (KeyId), "OpenShardCount" :: ShardCountObject }
 ```
 
 <p>Represents the output for <a>DescribeStreamSummary</a> </p>
@@ -2335,7 +2335,7 @@ Constructs StreamDescriptionSummary from required parameters
 #### `newStreamDescriptionSummary'`
 
 ``` purescript
-newStreamDescriptionSummary' :: EnhancedMonitoringList -> ShardCountObject -> PositiveIntegerObject -> StreamARN -> Timestamp -> StreamName -> StreamStatus -> ({ "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "RetentionPeriodHours" :: PositiveIntegerObject, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: NullOrUndefined (EncryptionType), "KeyId" :: NullOrUndefined (KeyId), "OpenShardCount" :: ShardCountObject } -> { "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "RetentionPeriodHours" :: PositiveIntegerObject, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: NullOrUndefined (EncryptionType), "KeyId" :: NullOrUndefined (KeyId), "OpenShardCount" :: ShardCountObject }) -> StreamDescriptionSummary
+newStreamDescriptionSummary' :: EnhancedMonitoringList -> ShardCountObject -> PositiveIntegerObject -> StreamARN -> Timestamp -> StreamName -> StreamStatus -> ({ "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "RetentionPeriodHours" :: PositiveIntegerObject, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: Maybe (EncryptionType), "KeyId" :: Maybe (KeyId), "OpenShardCount" :: ShardCountObject } -> { "StreamName" :: StreamName, "StreamARN" :: StreamARN, "StreamStatus" :: StreamStatus, "RetentionPeriodHours" :: PositiveIntegerObject, "StreamCreationTimestamp" :: Timestamp, "EnhancedMonitoring" :: EnhancedMonitoringList, "EncryptionType" :: Maybe (EncryptionType), "KeyId" :: Maybe (KeyId), "OpenShardCount" :: ShardCountObject }) -> StreamDescriptionSummary
 ```
 
 Constructs StreamDescriptionSummary's fields from required parameters
@@ -2392,7 +2392,7 @@ Encode StreamStatus
 
 ``` purescript
 newtype Tag
-  = Tag { "Key" :: TagKey, "Value" :: NullOrUndefined (TagValue) }
+  = Tag { "Key" :: TagKey, "Value" :: Maybe (TagValue) }
 ```
 
 <p>Metadata assigned to the stream, consisting of a key-value pair.</p>
@@ -2417,7 +2417,7 @@ Constructs Tag from required parameters
 #### `newTag'`
 
 ``` purescript
-newTag' :: TagKey -> ({ "Key" :: TagKey, "Value" :: NullOrUndefined (TagValue) } -> { "Key" :: TagKey, "Value" :: NullOrUndefined (TagValue) }) -> Tag
+newTag' :: TagKey -> ({ "Key" :: TagKey, "Value" :: Maybe (TagValue) } -> { "Key" :: TagKey, "Value" :: Maybe (TagValue) }) -> Tag
 ```
 
 Constructs Tag's fields from required parameters
@@ -2538,7 +2538,7 @@ Constructs UpdateShardCountInput's fields from required parameters
 
 ``` purescript
 newtype UpdateShardCountOutput
-  = UpdateShardCountOutput { "StreamName" :: NullOrUndefined (StreamName), "CurrentShardCount" :: NullOrUndefined (PositiveIntegerObject), "TargetShardCount" :: NullOrUndefined (PositiveIntegerObject) }
+  = UpdateShardCountOutput { "StreamName" :: Maybe (StreamName), "CurrentShardCount" :: Maybe (PositiveIntegerObject), "TargetShardCount" :: Maybe (PositiveIntegerObject) }
 ```
 
 ##### Instances
@@ -2561,7 +2561,7 @@ Constructs UpdateShardCountOutput from required parameters
 #### `newUpdateShardCountOutput'`
 
 ``` purescript
-newUpdateShardCountOutput' :: ({ "StreamName" :: NullOrUndefined (StreamName), "CurrentShardCount" :: NullOrUndefined (PositiveIntegerObject), "TargetShardCount" :: NullOrUndefined (PositiveIntegerObject) } -> { "StreamName" :: NullOrUndefined (StreamName), "CurrentShardCount" :: NullOrUndefined (PositiveIntegerObject), "TargetShardCount" :: NullOrUndefined (PositiveIntegerObject) }) -> UpdateShardCountOutput
+newUpdateShardCountOutput' :: ({ "StreamName" :: Maybe (StreamName), "CurrentShardCount" :: Maybe (PositiveIntegerObject), "TargetShardCount" :: Maybe (PositiveIntegerObject) } -> { "StreamName" :: Maybe (StreamName), "CurrentShardCount" :: Maybe (PositiveIntegerObject), "TargetShardCount" :: Maybe (PositiveIntegerObject) }) -> UpdateShardCountOutput
 ```
 
 Constructs UpdateShardCountOutput's fields from required parameters

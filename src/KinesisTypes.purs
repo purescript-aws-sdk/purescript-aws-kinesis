@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -156,8 +155,8 @@ newDescribeLimitsOutput' _OpenShardCount _ShardLimit customize = (DescribeLimits
 -- | <p>Represents the input for <code>DescribeStream</code>.</p>
 newtype DescribeStreamInput = DescribeStreamInput 
   { "StreamName" :: (StreamName)
-  , "Limit" :: NullOrUndefined (DescribeStreamInputLimit)
-  , "ExclusiveStartShardId" :: NullOrUndefined (ShardId)
+  , "Limit" :: Maybe (DescribeStreamInputLimit)
+  , "ExclusiveStartShardId" :: Maybe (ShardId)
   }
 derive instance newtypeDescribeStreamInput :: Newtype DescribeStreamInput _
 derive instance repGenericDescribeStreamInput :: Generic DescribeStreamInput _
@@ -167,12 +166,12 @@ instance encodeDescribeStreamInput :: Encode DescribeStreamInput where encode = 
 
 -- | Constructs DescribeStreamInput from required parameters
 newDescribeStreamInput :: StreamName -> DescribeStreamInput
-newDescribeStreamInput _StreamName = DescribeStreamInput { "StreamName": _StreamName, "ExclusiveStartShardId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing) }
+newDescribeStreamInput _StreamName = DescribeStreamInput { "StreamName": _StreamName, "ExclusiveStartShardId": Nothing, "Limit": Nothing }
 
 -- | Constructs DescribeStreamInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeStreamInput' :: StreamName -> ( { "StreamName" :: (StreamName) , "Limit" :: NullOrUndefined (DescribeStreamInputLimit) , "ExclusiveStartShardId" :: NullOrUndefined (ShardId) } -> {"StreamName" :: (StreamName) , "Limit" :: NullOrUndefined (DescribeStreamInputLimit) , "ExclusiveStartShardId" :: NullOrUndefined (ShardId) } ) -> DescribeStreamInput
-newDescribeStreamInput' _StreamName customize = (DescribeStreamInput <<< customize) { "StreamName": _StreamName, "ExclusiveStartShardId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing) }
+newDescribeStreamInput' :: StreamName -> ( { "StreamName" :: (StreamName) , "Limit" :: Maybe (DescribeStreamInputLimit) , "ExclusiveStartShardId" :: Maybe (ShardId) } -> {"StreamName" :: (StreamName) , "Limit" :: Maybe (DescribeStreamInputLimit) , "ExclusiveStartShardId" :: Maybe (ShardId) } ) -> DescribeStreamInput
+newDescribeStreamInput' _StreamName customize = (DescribeStreamInput <<< customize) { "StreamName": _StreamName, "ExclusiveStartShardId": Nothing, "Limit": Nothing }
 
 
 
@@ -301,7 +300,7 @@ instance encodeEncryptionType :: Encode EncryptionType where encode = genericEnc
 
 -- | <p>Represents enhanced metrics types.</p>
 newtype EnhancedMetrics = EnhancedMetrics 
-  { "ShardLevelMetrics" :: NullOrUndefined (MetricsNameList)
+  { "ShardLevelMetrics" :: Maybe (MetricsNameList)
   }
 derive instance newtypeEnhancedMetrics :: Newtype EnhancedMetrics _
 derive instance repGenericEnhancedMetrics :: Generic EnhancedMetrics _
@@ -311,12 +310,12 @@ instance encodeEnhancedMetrics :: Encode EnhancedMetrics where encode = genericE
 
 -- | Constructs EnhancedMetrics from required parameters
 newEnhancedMetrics :: EnhancedMetrics
-newEnhancedMetrics  = EnhancedMetrics { "ShardLevelMetrics": (NullOrUndefined Nothing) }
+newEnhancedMetrics  = EnhancedMetrics { "ShardLevelMetrics": Nothing }
 
 -- | Constructs EnhancedMetrics's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEnhancedMetrics' :: ( { "ShardLevelMetrics" :: NullOrUndefined (MetricsNameList) } -> {"ShardLevelMetrics" :: NullOrUndefined (MetricsNameList) } ) -> EnhancedMetrics
-newEnhancedMetrics'  customize = (EnhancedMetrics <<< customize) { "ShardLevelMetrics": (NullOrUndefined Nothing) }
+newEnhancedMetrics' :: ( { "ShardLevelMetrics" :: Maybe (MetricsNameList) } -> {"ShardLevelMetrics" :: Maybe (MetricsNameList) } ) -> EnhancedMetrics
+newEnhancedMetrics'  customize = (EnhancedMetrics <<< customize) { "ShardLevelMetrics": Nothing }
 
 
 
@@ -331,9 +330,9 @@ instance encodeEnhancedMonitoringList :: Encode EnhancedMonitoringList where enc
 
 -- | <p>Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>.</p>
 newtype EnhancedMonitoringOutput = EnhancedMonitoringOutput 
-  { "StreamName" :: NullOrUndefined (StreamName)
-  , "CurrentShardLevelMetrics" :: NullOrUndefined (MetricsNameList)
-  , "DesiredShardLevelMetrics" :: NullOrUndefined (MetricsNameList)
+  { "StreamName" :: Maybe (StreamName)
+  , "CurrentShardLevelMetrics" :: Maybe (MetricsNameList)
+  , "DesiredShardLevelMetrics" :: Maybe (MetricsNameList)
   }
 derive instance newtypeEnhancedMonitoringOutput :: Newtype EnhancedMonitoringOutput _
 derive instance repGenericEnhancedMonitoringOutput :: Generic EnhancedMonitoringOutput _
@@ -343,12 +342,12 @@ instance encodeEnhancedMonitoringOutput :: Encode EnhancedMonitoringOutput where
 
 -- | Constructs EnhancedMonitoringOutput from required parameters
 newEnhancedMonitoringOutput :: EnhancedMonitoringOutput
-newEnhancedMonitoringOutput  = EnhancedMonitoringOutput { "CurrentShardLevelMetrics": (NullOrUndefined Nothing), "DesiredShardLevelMetrics": (NullOrUndefined Nothing), "StreamName": (NullOrUndefined Nothing) }
+newEnhancedMonitoringOutput  = EnhancedMonitoringOutput { "CurrentShardLevelMetrics": Nothing, "DesiredShardLevelMetrics": Nothing, "StreamName": Nothing }
 
 -- | Constructs EnhancedMonitoringOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEnhancedMonitoringOutput' :: ( { "StreamName" :: NullOrUndefined (StreamName) , "CurrentShardLevelMetrics" :: NullOrUndefined (MetricsNameList) , "DesiredShardLevelMetrics" :: NullOrUndefined (MetricsNameList) } -> {"StreamName" :: NullOrUndefined (StreamName) , "CurrentShardLevelMetrics" :: NullOrUndefined (MetricsNameList) , "DesiredShardLevelMetrics" :: NullOrUndefined (MetricsNameList) } ) -> EnhancedMonitoringOutput
-newEnhancedMonitoringOutput'  customize = (EnhancedMonitoringOutput <<< customize) { "CurrentShardLevelMetrics": (NullOrUndefined Nothing), "DesiredShardLevelMetrics": (NullOrUndefined Nothing), "StreamName": (NullOrUndefined Nothing) }
+newEnhancedMonitoringOutput' :: ( { "StreamName" :: Maybe (StreamName) , "CurrentShardLevelMetrics" :: Maybe (MetricsNameList) , "DesiredShardLevelMetrics" :: Maybe (MetricsNameList) } -> {"StreamName" :: Maybe (StreamName) , "CurrentShardLevelMetrics" :: Maybe (MetricsNameList) , "DesiredShardLevelMetrics" :: Maybe (MetricsNameList) } ) -> EnhancedMonitoringOutput
+newEnhancedMonitoringOutput'  customize = (EnhancedMonitoringOutput <<< customize) { "CurrentShardLevelMetrics": Nothing, "DesiredShardLevelMetrics": Nothing, "StreamName": Nothing }
 
 
 
@@ -372,7 +371,7 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 
 -- | <p>The provided iterator exceeds the maximum age allowed.</p>
 newtype ExpiredIteratorException = ExpiredIteratorException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeExpiredIteratorException :: Newtype ExpiredIteratorException _
 derive instance repGenericExpiredIteratorException :: Generic ExpiredIteratorException _
@@ -382,18 +381,18 @@ instance encodeExpiredIteratorException :: Encode ExpiredIteratorException where
 
 -- | Constructs ExpiredIteratorException from required parameters
 newExpiredIteratorException :: ExpiredIteratorException
-newExpiredIteratorException  = ExpiredIteratorException { "message": (NullOrUndefined Nothing) }
+newExpiredIteratorException  = ExpiredIteratorException { "message": Nothing }
 
 -- | Constructs ExpiredIteratorException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExpiredIteratorException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ExpiredIteratorException
-newExpiredIteratorException'  customize = (ExpiredIteratorException <<< customize) { "message": (NullOrUndefined Nothing) }
+newExpiredIteratorException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ExpiredIteratorException
+newExpiredIteratorException'  customize = (ExpiredIteratorException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The pagination token passed to the <code>ListShards</code> operation is expired. For more information, see <a>ListShardsInput$NextToken</a>.</p>
 newtype ExpiredNextTokenException = ExpiredNextTokenException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeExpiredNextTokenException :: Newtype ExpiredNextTokenException _
 derive instance repGenericExpiredNextTokenException :: Generic ExpiredNextTokenException _
@@ -403,19 +402,19 @@ instance encodeExpiredNextTokenException :: Encode ExpiredNextTokenException whe
 
 -- | Constructs ExpiredNextTokenException from required parameters
 newExpiredNextTokenException :: ExpiredNextTokenException
-newExpiredNextTokenException  = ExpiredNextTokenException { "message": (NullOrUndefined Nothing) }
+newExpiredNextTokenException  = ExpiredNextTokenException { "message": Nothing }
 
 -- | Constructs ExpiredNextTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExpiredNextTokenException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ExpiredNextTokenException
-newExpiredNextTokenException'  customize = (ExpiredNextTokenException <<< customize) { "message": (NullOrUndefined Nothing) }
+newExpiredNextTokenException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ExpiredNextTokenException
+newExpiredNextTokenException'  customize = (ExpiredNextTokenException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Represents the input for <a>GetRecords</a>.</p>
 newtype GetRecordsInput = GetRecordsInput 
   { "ShardIterator" :: (ShardIterator)
-  , "Limit" :: NullOrUndefined (GetRecordsInputLimit)
+  , "Limit" :: Maybe (GetRecordsInputLimit)
   }
 derive instance newtypeGetRecordsInput :: Newtype GetRecordsInput _
 derive instance repGenericGetRecordsInput :: Generic GetRecordsInput _
@@ -425,12 +424,12 @@ instance encodeGetRecordsInput :: Encode GetRecordsInput where encode = genericE
 
 -- | Constructs GetRecordsInput from required parameters
 newGetRecordsInput :: ShardIterator -> GetRecordsInput
-newGetRecordsInput _ShardIterator = GetRecordsInput { "ShardIterator": _ShardIterator, "Limit": (NullOrUndefined Nothing) }
+newGetRecordsInput _ShardIterator = GetRecordsInput { "ShardIterator": _ShardIterator, "Limit": Nothing }
 
 -- | Constructs GetRecordsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetRecordsInput' :: ShardIterator -> ( { "ShardIterator" :: (ShardIterator) , "Limit" :: NullOrUndefined (GetRecordsInputLimit) } -> {"ShardIterator" :: (ShardIterator) , "Limit" :: NullOrUndefined (GetRecordsInputLimit) } ) -> GetRecordsInput
-newGetRecordsInput' _ShardIterator customize = (GetRecordsInput <<< customize) { "ShardIterator": _ShardIterator, "Limit": (NullOrUndefined Nothing) }
+newGetRecordsInput' :: ShardIterator -> ( { "ShardIterator" :: (ShardIterator) , "Limit" :: Maybe (GetRecordsInputLimit) } -> {"ShardIterator" :: (ShardIterator) , "Limit" :: Maybe (GetRecordsInputLimit) } ) -> GetRecordsInput
+newGetRecordsInput' _ShardIterator customize = (GetRecordsInput <<< customize) { "ShardIterator": _ShardIterator, "Limit": Nothing }
 
 
 
@@ -446,8 +445,8 @@ instance encodeGetRecordsInputLimit :: Encode GetRecordsInputLimit where encode 
 -- | <p>Represents the output for <a>GetRecords</a>.</p>
 newtype GetRecordsOutput = GetRecordsOutput 
   { "Records" :: (RecordList)
-  , "NextShardIterator" :: NullOrUndefined (ShardIterator)
-  , "MillisBehindLatest" :: NullOrUndefined (MillisBehindLatest)
+  , "NextShardIterator" :: Maybe (ShardIterator)
+  , "MillisBehindLatest" :: Maybe (MillisBehindLatest)
   }
 derive instance newtypeGetRecordsOutput :: Newtype GetRecordsOutput _
 derive instance repGenericGetRecordsOutput :: Generic GetRecordsOutput _
@@ -457,12 +456,12 @@ instance encodeGetRecordsOutput :: Encode GetRecordsOutput where encode = generi
 
 -- | Constructs GetRecordsOutput from required parameters
 newGetRecordsOutput :: RecordList -> GetRecordsOutput
-newGetRecordsOutput _Records = GetRecordsOutput { "Records": _Records, "MillisBehindLatest": (NullOrUndefined Nothing), "NextShardIterator": (NullOrUndefined Nothing) }
+newGetRecordsOutput _Records = GetRecordsOutput { "Records": _Records, "MillisBehindLatest": Nothing, "NextShardIterator": Nothing }
 
 -- | Constructs GetRecordsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetRecordsOutput' :: RecordList -> ( { "Records" :: (RecordList) , "NextShardIterator" :: NullOrUndefined (ShardIterator) , "MillisBehindLatest" :: NullOrUndefined (MillisBehindLatest) } -> {"Records" :: (RecordList) , "NextShardIterator" :: NullOrUndefined (ShardIterator) , "MillisBehindLatest" :: NullOrUndefined (MillisBehindLatest) } ) -> GetRecordsOutput
-newGetRecordsOutput' _Records customize = (GetRecordsOutput <<< customize) { "Records": _Records, "MillisBehindLatest": (NullOrUndefined Nothing), "NextShardIterator": (NullOrUndefined Nothing) }
+newGetRecordsOutput' :: RecordList -> ( { "Records" :: (RecordList) , "NextShardIterator" :: Maybe (ShardIterator) , "MillisBehindLatest" :: Maybe (MillisBehindLatest) } -> {"Records" :: (RecordList) , "NextShardIterator" :: Maybe (ShardIterator) , "MillisBehindLatest" :: Maybe (MillisBehindLatest) } ) -> GetRecordsOutput
+newGetRecordsOutput' _Records customize = (GetRecordsOutput <<< customize) { "Records": _Records, "MillisBehindLatest": Nothing, "NextShardIterator": Nothing }
 
 
 
@@ -471,8 +470,8 @@ newtype GetShardIteratorInput = GetShardIteratorInput
   { "StreamName" :: (StreamName)
   , "ShardId" :: (ShardId)
   , "ShardIteratorType" :: (ShardIteratorType)
-  , "StartingSequenceNumber" :: NullOrUndefined (SequenceNumber)
-  , "Timestamp" :: NullOrUndefined (Types.Timestamp)
+  , "StartingSequenceNumber" :: Maybe (SequenceNumber)
+  , "Timestamp" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeGetShardIteratorInput :: Newtype GetShardIteratorInput _
 derive instance repGenericGetShardIteratorInput :: Generic GetShardIteratorInput _
@@ -482,18 +481,18 @@ instance encodeGetShardIteratorInput :: Encode GetShardIteratorInput where encod
 
 -- | Constructs GetShardIteratorInput from required parameters
 newGetShardIteratorInput :: ShardId -> ShardIteratorType -> StreamName -> GetShardIteratorInput
-newGetShardIteratorInput _ShardId _ShardIteratorType _StreamName = GetShardIteratorInput { "ShardId": _ShardId, "ShardIteratorType": _ShardIteratorType, "StreamName": _StreamName, "StartingSequenceNumber": (NullOrUndefined Nothing), "Timestamp": (NullOrUndefined Nothing) }
+newGetShardIteratorInput _ShardId _ShardIteratorType _StreamName = GetShardIteratorInput { "ShardId": _ShardId, "ShardIteratorType": _ShardIteratorType, "StreamName": _StreamName, "StartingSequenceNumber": Nothing, "Timestamp": Nothing }
 
 -- | Constructs GetShardIteratorInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetShardIteratorInput' :: ShardId -> ShardIteratorType -> StreamName -> ( { "StreamName" :: (StreamName) , "ShardId" :: (ShardId) , "ShardIteratorType" :: (ShardIteratorType) , "StartingSequenceNumber" :: NullOrUndefined (SequenceNumber) , "Timestamp" :: NullOrUndefined (Types.Timestamp) } -> {"StreamName" :: (StreamName) , "ShardId" :: (ShardId) , "ShardIteratorType" :: (ShardIteratorType) , "StartingSequenceNumber" :: NullOrUndefined (SequenceNumber) , "Timestamp" :: NullOrUndefined (Types.Timestamp) } ) -> GetShardIteratorInput
-newGetShardIteratorInput' _ShardId _ShardIteratorType _StreamName customize = (GetShardIteratorInput <<< customize) { "ShardId": _ShardId, "ShardIteratorType": _ShardIteratorType, "StreamName": _StreamName, "StartingSequenceNumber": (NullOrUndefined Nothing), "Timestamp": (NullOrUndefined Nothing) }
+newGetShardIteratorInput' :: ShardId -> ShardIteratorType -> StreamName -> ( { "StreamName" :: (StreamName) , "ShardId" :: (ShardId) , "ShardIteratorType" :: (ShardIteratorType) , "StartingSequenceNumber" :: Maybe (SequenceNumber) , "Timestamp" :: Maybe (Types.Timestamp) } -> {"StreamName" :: (StreamName) , "ShardId" :: (ShardId) , "ShardIteratorType" :: (ShardIteratorType) , "StartingSequenceNumber" :: Maybe (SequenceNumber) , "Timestamp" :: Maybe (Types.Timestamp) } ) -> GetShardIteratorInput
+newGetShardIteratorInput' _ShardId _ShardIteratorType _StreamName customize = (GetShardIteratorInput <<< customize) { "ShardId": _ShardId, "ShardIteratorType": _ShardIteratorType, "StreamName": _StreamName, "StartingSequenceNumber": Nothing, "Timestamp": Nothing }
 
 
 
 -- | <p>Represents the output for <code>GetShardIterator</code>.</p>
 newtype GetShardIteratorOutput = GetShardIteratorOutput 
-  { "ShardIterator" :: NullOrUndefined (ShardIterator)
+  { "ShardIterator" :: Maybe (ShardIterator)
   }
 derive instance newtypeGetShardIteratorOutput :: Newtype GetShardIteratorOutput _
 derive instance repGenericGetShardIteratorOutput :: Generic GetShardIteratorOutput _
@@ -503,12 +502,12 @@ instance encodeGetShardIteratorOutput :: Encode GetShardIteratorOutput where enc
 
 -- | Constructs GetShardIteratorOutput from required parameters
 newGetShardIteratorOutput :: GetShardIteratorOutput
-newGetShardIteratorOutput  = GetShardIteratorOutput { "ShardIterator": (NullOrUndefined Nothing) }
+newGetShardIteratorOutput  = GetShardIteratorOutput { "ShardIterator": Nothing }
 
 -- | Constructs GetShardIteratorOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetShardIteratorOutput' :: ( { "ShardIterator" :: NullOrUndefined (ShardIterator) } -> {"ShardIterator" :: NullOrUndefined (ShardIterator) } ) -> GetShardIteratorOutput
-newGetShardIteratorOutput'  customize = (GetShardIteratorOutput <<< customize) { "ShardIterator": (NullOrUndefined Nothing) }
+newGetShardIteratorOutput' :: ( { "ShardIterator" :: Maybe (ShardIterator) } -> {"ShardIterator" :: Maybe (ShardIterator) } ) -> GetShardIteratorOutput
+newGetShardIteratorOutput'  customize = (GetShardIteratorOutput <<< customize) { "ShardIterator": Nothing }
 
 
 
@@ -567,7 +566,7 @@ newIncreaseStreamRetentionPeriodInput' _RetentionPeriodHours _StreamName customi
 
 -- | <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
 newtype InvalidArgumentException = InvalidArgumentException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidArgumentException :: Newtype InvalidArgumentException _
 derive instance repGenericInvalidArgumentException :: Generic InvalidArgumentException _
@@ -577,18 +576,18 @@ instance encodeInvalidArgumentException :: Encode InvalidArgumentException where
 
 -- | Constructs InvalidArgumentException from required parameters
 newInvalidArgumentException :: InvalidArgumentException
-newInvalidArgumentException  = InvalidArgumentException { "message": (NullOrUndefined Nothing) }
+newInvalidArgumentException  = InvalidArgumentException { "message": Nothing }
 
 -- | Constructs InvalidArgumentException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidArgumentException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidArgumentException
-newInvalidArgumentException'  customize = (InvalidArgumentException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidArgumentException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> InvalidArgumentException
+newInvalidArgumentException'  customize = (InvalidArgumentException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
 newtype KMSAccessDeniedException = KMSAccessDeniedException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeKMSAccessDeniedException :: Newtype KMSAccessDeniedException _
 derive instance repGenericKMSAccessDeniedException :: Generic KMSAccessDeniedException _
@@ -598,18 +597,18 @@ instance encodeKMSAccessDeniedException :: Encode KMSAccessDeniedException where
 
 -- | Constructs KMSAccessDeniedException from required parameters
 newKMSAccessDeniedException :: KMSAccessDeniedException
-newKMSAccessDeniedException  = KMSAccessDeniedException { "message": (NullOrUndefined Nothing) }
+newKMSAccessDeniedException  = KMSAccessDeniedException { "message": Nothing }
 
 -- | Constructs KMSAccessDeniedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKMSAccessDeniedException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> KMSAccessDeniedException
-newKMSAccessDeniedException'  customize = (KMSAccessDeniedException <<< customize) { "message": (NullOrUndefined Nothing) }
+newKMSAccessDeniedException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> KMSAccessDeniedException
+newKMSAccessDeniedException'  customize = (KMSAccessDeniedException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the specified customer master key (CMK) isn't enabled.</p>
 newtype KMSDisabledException = KMSDisabledException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeKMSDisabledException :: Newtype KMSDisabledException _
 derive instance repGenericKMSDisabledException :: Generic KMSDisabledException _
@@ -619,18 +618,18 @@ instance encodeKMSDisabledException :: Encode KMSDisabledException where encode 
 
 -- | Constructs KMSDisabledException from required parameters
 newKMSDisabledException :: KMSDisabledException
-newKMSDisabledException  = KMSDisabledException { "message": (NullOrUndefined Nothing) }
+newKMSDisabledException  = KMSDisabledException { "message": Nothing }
 
 -- | Constructs KMSDisabledException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKMSDisabledException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> KMSDisabledException
-newKMSDisabledException'  customize = (KMSDisabledException <<< customize) { "message": (NullOrUndefined Nothing) }
+newKMSDisabledException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> KMSDisabledException
+newKMSDisabledException'  customize = (KMSDisabledException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
 newtype KMSInvalidStateException = KMSInvalidStateException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeKMSInvalidStateException :: Newtype KMSInvalidStateException _
 derive instance repGenericKMSInvalidStateException :: Generic KMSInvalidStateException _
@@ -640,18 +639,18 @@ instance encodeKMSInvalidStateException :: Encode KMSInvalidStateException where
 
 -- | Constructs KMSInvalidStateException from required parameters
 newKMSInvalidStateException :: KMSInvalidStateException
-newKMSInvalidStateException  = KMSInvalidStateException { "message": (NullOrUndefined Nothing) }
+newKMSInvalidStateException  = KMSInvalidStateException { "message": Nothing }
 
 -- | Constructs KMSInvalidStateException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKMSInvalidStateException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> KMSInvalidStateException
-newKMSInvalidStateException'  customize = (KMSInvalidStateException <<< customize) { "message": (NullOrUndefined Nothing) }
+newKMSInvalidStateException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> KMSInvalidStateException
+newKMSInvalidStateException'  customize = (KMSInvalidStateException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the specified entity or resource can't be found.</p>
 newtype KMSNotFoundException = KMSNotFoundException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeKMSNotFoundException :: Newtype KMSNotFoundException _
 derive instance repGenericKMSNotFoundException :: Generic KMSNotFoundException _
@@ -661,18 +660,18 @@ instance encodeKMSNotFoundException :: Encode KMSNotFoundException where encode 
 
 -- | Constructs KMSNotFoundException from required parameters
 newKMSNotFoundException :: KMSNotFoundException
-newKMSNotFoundException  = KMSNotFoundException { "message": (NullOrUndefined Nothing) }
+newKMSNotFoundException  = KMSNotFoundException { "message": Nothing }
 
 -- | Constructs KMSNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKMSNotFoundException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> KMSNotFoundException
-newKMSNotFoundException'  customize = (KMSNotFoundException <<< customize) { "message": (NullOrUndefined Nothing) }
+newKMSNotFoundException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> KMSNotFoundException
+newKMSNotFoundException'  customize = (KMSNotFoundException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The AWS access key ID needs a subscription for the service.</p>
 newtype KMSOptInRequired = KMSOptInRequired 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeKMSOptInRequired :: Newtype KMSOptInRequired _
 derive instance repGenericKMSOptInRequired :: Generic KMSOptInRequired _
@@ -682,18 +681,18 @@ instance encodeKMSOptInRequired :: Encode KMSOptInRequired where encode = generi
 
 -- | Constructs KMSOptInRequired from required parameters
 newKMSOptInRequired :: KMSOptInRequired
-newKMSOptInRequired  = KMSOptInRequired { "message": (NullOrUndefined Nothing) }
+newKMSOptInRequired  = KMSOptInRequired { "message": Nothing }
 
 -- | Constructs KMSOptInRequired's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKMSOptInRequired' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> KMSOptInRequired
-newKMSOptInRequired'  customize = (KMSOptInRequired <<< customize) { "message": (NullOrUndefined Nothing) }
+newKMSOptInRequired' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> KMSOptInRequired
+newKMSOptInRequired'  customize = (KMSOptInRequired <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was denied due to request throttling. For more information about throttling, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
 newtype KMSThrottlingException = KMSThrottlingException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeKMSThrottlingException :: Newtype KMSThrottlingException _
 derive instance repGenericKMSThrottlingException :: Generic KMSThrottlingException _
@@ -703,12 +702,12 @@ instance encodeKMSThrottlingException :: Encode KMSThrottlingException where enc
 
 -- | Constructs KMSThrottlingException from required parameters
 newKMSThrottlingException :: KMSThrottlingException
-newKMSThrottlingException  = KMSThrottlingException { "message": (NullOrUndefined Nothing) }
+newKMSThrottlingException  = KMSThrottlingException { "message": Nothing }
 
 -- | Constructs KMSThrottlingException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKMSThrottlingException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> KMSThrottlingException
-newKMSThrottlingException'  customize = (KMSThrottlingException <<< customize) { "message": (NullOrUndefined Nothing) }
+newKMSThrottlingException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> KMSThrottlingException
+newKMSThrottlingException'  customize = (KMSThrottlingException <<< customize) { "message": Nothing }
 
 
 
@@ -723,7 +722,7 @@ instance encodeKeyId :: Encode KeyId where encode = genericEncode options
 
 -- | <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
 newtype LimitExceededException = LimitExceededException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -733,21 +732,21 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "message": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "message": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": Nothing }
 
 
 
 newtype ListShardsInput = ListShardsInput 
-  { "StreamName" :: NullOrUndefined (StreamName)
-  , "NextToken" :: NullOrUndefined (NextToken)
-  , "ExclusiveStartShardId" :: NullOrUndefined (ShardId)
-  , "MaxResults" :: NullOrUndefined (ListShardsInputLimit)
-  , "StreamCreationTimestamp" :: NullOrUndefined (Types.Timestamp)
+  { "StreamName" :: Maybe (StreamName)
+  , "NextToken" :: Maybe (NextToken)
+  , "ExclusiveStartShardId" :: Maybe (ShardId)
+  , "MaxResults" :: Maybe (ListShardsInputLimit)
+  , "StreamCreationTimestamp" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeListShardsInput :: Newtype ListShardsInput _
 derive instance repGenericListShardsInput :: Generic ListShardsInput _
@@ -757,12 +756,12 @@ instance encodeListShardsInput :: Encode ListShardsInput where encode = genericE
 
 -- | Constructs ListShardsInput from required parameters
 newListShardsInput :: ListShardsInput
-newListShardsInput  = ListShardsInput { "ExclusiveStartShardId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StreamCreationTimestamp": (NullOrUndefined Nothing), "StreamName": (NullOrUndefined Nothing) }
+newListShardsInput  = ListShardsInput { "ExclusiveStartShardId": Nothing, "MaxResults": Nothing, "NextToken": Nothing, "StreamCreationTimestamp": Nothing, "StreamName": Nothing }
 
 -- | Constructs ListShardsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListShardsInput' :: ( { "StreamName" :: NullOrUndefined (StreamName) , "NextToken" :: NullOrUndefined (NextToken) , "ExclusiveStartShardId" :: NullOrUndefined (ShardId) , "MaxResults" :: NullOrUndefined (ListShardsInputLimit) , "StreamCreationTimestamp" :: NullOrUndefined (Types.Timestamp) } -> {"StreamName" :: NullOrUndefined (StreamName) , "NextToken" :: NullOrUndefined (NextToken) , "ExclusiveStartShardId" :: NullOrUndefined (ShardId) , "MaxResults" :: NullOrUndefined (ListShardsInputLimit) , "StreamCreationTimestamp" :: NullOrUndefined (Types.Timestamp) } ) -> ListShardsInput
-newListShardsInput'  customize = (ListShardsInput <<< customize) { "ExclusiveStartShardId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StreamCreationTimestamp": (NullOrUndefined Nothing), "StreamName": (NullOrUndefined Nothing) }
+newListShardsInput' :: ( { "StreamName" :: Maybe (StreamName) , "NextToken" :: Maybe (NextToken) , "ExclusiveStartShardId" :: Maybe (ShardId) , "MaxResults" :: Maybe (ListShardsInputLimit) , "StreamCreationTimestamp" :: Maybe (Types.Timestamp) } -> {"StreamName" :: Maybe (StreamName) , "NextToken" :: Maybe (NextToken) , "ExclusiveStartShardId" :: Maybe (ShardId) , "MaxResults" :: Maybe (ListShardsInputLimit) , "StreamCreationTimestamp" :: Maybe (Types.Timestamp) } ) -> ListShardsInput
+newListShardsInput'  customize = (ListShardsInput <<< customize) { "ExclusiveStartShardId": Nothing, "MaxResults": Nothing, "NextToken": Nothing, "StreamCreationTimestamp": Nothing, "StreamName": Nothing }
 
 
 
@@ -776,8 +775,8 @@ instance encodeListShardsInputLimit :: Encode ListShardsInputLimit where encode 
 
 
 newtype ListShardsOutput = ListShardsOutput 
-  { "Shards" :: NullOrUndefined (ShardList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Shards" :: Maybe (ShardList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListShardsOutput :: Newtype ListShardsOutput _
 derive instance repGenericListShardsOutput :: Generic ListShardsOutput _
@@ -787,19 +786,19 @@ instance encodeListShardsOutput :: Encode ListShardsOutput where encode = generi
 
 -- | Constructs ListShardsOutput from required parameters
 newListShardsOutput :: ListShardsOutput
-newListShardsOutput  = ListShardsOutput { "NextToken": (NullOrUndefined Nothing), "Shards": (NullOrUndefined Nothing) }
+newListShardsOutput  = ListShardsOutput { "NextToken": Nothing, "Shards": Nothing }
 
 -- | Constructs ListShardsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListShardsOutput' :: ( { "Shards" :: NullOrUndefined (ShardList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Shards" :: NullOrUndefined (ShardList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListShardsOutput
-newListShardsOutput'  customize = (ListShardsOutput <<< customize) { "NextToken": (NullOrUndefined Nothing), "Shards": (NullOrUndefined Nothing) }
+newListShardsOutput' :: ( { "Shards" :: Maybe (ShardList) , "NextToken" :: Maybe (NextToken) } -> {"Shards" :: Maybe (ShardList) , "NextToken" :: Maybe (NextToken) } ) -> ListShardsOutput
+newListShardsOutput'  customize = (ListShardsOutput <<< customize) { "NextToken": Nothing, "Shards": Nothing }
 
 
 
 -- | <p>Represents the input for <code>ListStreams</code>.</p>
 newtype ListStreamsInput = ListStreamsInput 
-  { "Limit" :: NullOrUndefined (ListStreamsInputLimit)
-  , "ExclusiveStartStreamName" :: NullOrUndefined (StreamName)
+  { "Limit" :: Maybe (ListStreamsInputLimit)
+  , "ExclusiveStartStreamName" :: Maybe (StreamName)
   }
 derive instance newtypeListStreamsInput :: Newtype ListStreamsInput _
 derive instance repGenericListStreamsInput :: Generic ListStreamsInput _
@@ -809,12 +808,12 @@ instance encodeListStreamsInput :: Encode ListStreamsInput where encode = generi
 
 -- | Constructs ListStreamsInput from required parameters
 newListStreamsInput :: ListStreamsInput
-newListStreamsInput  = ListStreamsInput { "ExclusiveStartStreamName": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing) }
+newListStreamsInput  = ListStreamsInput { "ExclusiveStartStreamName": Nothing, "Limit": Nothing }
 
 -- | Constructs ListStreamsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListStreamsInput' :: ( { "Limit" :: NullOrUndefined (ListStreamsInputLimit) , "ExclusiveStartStreamName" :: NullOrUndefined (StreamName) } -> {"Limit" :: NullOrUndefined (ListStreamsInputLimit) , "ExclusiveStartStreamName" :: NullOrUndefined (StreamName) } ) -> ListStreamsInput
-newListStreamsInput'  customize = (ListStreamsInput <<< customize) { "ExclusiveStartStreamName": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing) }
+newListStreamsInput' :: ( { "Limit" :: Maybe (ListStreamsInputLimit) , "ExclusiveStartStreamName" :: Maybe (StreamName) } -> {"Limit" :: Maybe (ListStreamsInputLimit) , "ExclusiveStartStreamName" :: Maybe (StreamName) } ) -> ListStreamsInput
+newListStreamsInput'  customize = (ListStreamsInput <<< customize) { "ExclusiveStartStreamName": Nothing, "Limit": Nothing }
 
 
 
@@ -852,8 +851,8 @@ newListStreamsOutput' _HasMoreStreams _StreamNames customize = (ListStreamsOutpu
 -- | <p>Represents the input for <code>ListTagsForStream</code>.</p>
 newtype ListTagsForStreamInput = ListTagsForStreamInput 
   { "StreamName" :: (StreamName)
-  , "ExclusiveStartTagKey" :: NullOrUndefined (TagKey)
-  , "Limit" :: NullOrUndefined (ListTagsForStreamInputLimit)
+  , "ExclusiveStartTagKey" :: Maybe (TagKey)
+  , "Limit" :: Maybe (ListTagsForStreamInputLimit)
   }
 derive instance newtypeListTagsForStreamInput :: Newtype ListTagsForStreamInput _
 derive instance repGenericListTagsForStreamInput :: Generic ListTagsForStreamInput _
@@ -863,12 +862,12 @@ instance encodeListTagsForStreamInput :: Encode ListTagsForStreamInput where enc
 
 -- | Constructs ListTagsForStreamInput from required parameters
 newListTagsForStreamInput :: StreamName -> ListTagsForStreamInput
-newListTagsForStreamInput _StreamName = ListTagsForStreamInput { "StreamName": _StreamName, "ExclusiveStartTagKey": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing) }
+newListTagsForStreamInput _StreamName = ListTagsForStreamInput { "StreamName": _StreamName, "ExclusiveStartTagKey": Nothing, "Limit": Nothing }
 
 -- | Constructs ListTagsForStreamInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTagsForStreamInput' :: StreamName -> ( { "StreamName" :: (StreamName) , "ExclusiveStartTagKey" :: NullOrUndefined (TagKey) , "Limit" :: NullOrUndefined (ListTagsForStreamInputLimit) } -> {"StreamName" :: (StreamName) , "ExclusiveStartTagKey" :: NullOrUndefined (TagKey) , "Limit" :: NullOrUndefined (ListTagsForStreamInputLimit) } ) -> ListTagsForStreamInput
-newListTagsForStreamInput' _StreamName customize = (ListTagsForStreamInput <<< customize) { "StreamName": _StreamName, "ExclusiveStartTagKey": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing) }
+newListTagsForStreamInput' :: StreamName -> ( { "StreamName" :: (StreamName) , "ExclusiveStartTagKey" :: Maybe (TagKey) , "Limit" :: Maybe (ListTagsForStreamInputLimit) } -> {"StreamName" :: (StreamName) , "ExclusiveStartTagKey" :: Maybe (TagKey) , "Limit" :: Maybe (ListTagsForStreamInputLimit) } ) -> ListTagsForStreamInput
+newListTagsForStreamInput' _StreamName customize = (ListTagsForStreamInput <<< customize) { "StreamName": _StreamName, "ExclusiveStartTagKey": Nothing, "Limit": Nothing }
 
 
 
@@ -982,7 +981,7 @@ instance encodePositiveIntegerObject :: Encode PositiveIntegerObject where encod
 
 -- | <p>The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="http://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error Retries and Exponential Backoff in AWS</a> in the <i>AWS General Reference</i>.</p>
 newtype ProvisionedThroughputExceededException = ProvisionedThroughputExceededException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeProvisionedThroughputExceededException :: Newtype ProvisionedThroughputExceededException _
 derive instance repGenericProvisionedThroughputExceededException :: Generic ProvisionedThroughputExceededException _
@@ -992,12 +991,12 @@ instance encodeProvisionedThroughputExceededException :: Encode ProvisionedThrou
 
 -- | Constructs ProvisionedThroughputExceededException from required parameters
 newProvisionedThroughputExceededException :: ProvisionedThroughputExceededException
-newProvisionedThroughputExceededException  = ProvisionedThroughputExceededException { "message": (NullOrUndefined Nothing) }
+newProvisionedThroughputExceededException  = ProvisionedThroughputExceededException { "message": Nothing }
 
 -- | Constructs ProvisionedThroughputExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newProvisionedThroughputExceededException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ProvisionedThroughputExceededException
-newProvisionedThroughputExceededException'  customize = (ProvisionedThroughputExceededException <<< customize) { "message": (NullOrUndefined Nothing) }
+newProvisionedThroughputExceededException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ProvisionedThroughputExceededException
+newProvisionedThroughputExceededException'  customize = (ProvisionedThroughputExceededException <<< customize) { "message": Nothing }
 
 
 
@@ -1006,8 +1005,8 @@ newtype PutRecordInput = PutRecordInput
   { "StreamName" :: (StreamName)
   , "Data" :: (Data)
   , "PartitionKey" :: (PartitionKey)
-  , "ExplicitHashKey" :: NullOrUndefined (HashKey)
-  , "SequenceNumberForOrdering" :: NullOrUndefined (SequenceNumber)
+  , "ExplicitHashKey" :: Maybe (HashKey)
+  , "SequenceNumberForOrdering" :: Maybe (SequenceNumber)
   }
 derive instance newtypePutRecordInput :: Newtype PutRecordInput _
 derive instance repGenericPutRecordInput :: Generic PutRecordInput _
@@ -1017,12 +1016,12 @@ instance encodePutRecordInput :: Encode PutRecordInput where encode = genericEnc
 
 -- | Constructs PutRecordInput from required parameters
 newPutRecordInput :: Data -> PartitionKey -> StreamName -> PutRecordInput
-newPutRecordInput _Data _PartitionKey _StreamName = PutRecordInput { "Data": _Data, "PartitionKey": _PartitionKey, "StreamName": _StreamName, "ExplicitHashKey": (NullOrUndefined Nothing), "SequenceNumberForOrdering": (NullOrUndefined Nothing) }
+newPutRecordInput _Data _PartitionKey _StreamName = PutRecordInput { "Data": _Data, "PartitionKey": _PartitionKey, "StreamName": _StreamName, "ExplicitHashKey": Nothing, "SequenceNumberForOrdering": Nothing }
 
 -- | Constructs PutRecordInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutRecordInput' :: Data -> PartitionKey -> StreamName -> ( { "StreamName" :: (StreamName) , "Data" :: (Data) , "PartitionKey" :: (PartitionKey) , "ExplicitHashKey" :: NullOrUndefined (HashKey) , "SequenceNumberForOrdering" :: NullOrUndefined (SequenceNumber) } -> {"StreamName" :: (StreamName) , "Data" :: (Data) , "PartitionKey" :: (PartitionKey) , "ExplicitHashKey" :: NullOrUndefined (HashKey) , "SequenceNumberForOrdering" :: NullOrUndefined (SequenceNumber) } ) -> PutRecordInput
-newPutRecordInput' _Data _PartitionKey _StreamName customize = (PutRecordInput <<< customize) { "Data": _Data, "PartitionKey": _PartitionKey, "StreamName": _StreamName, "ExplicitHashKey": (NullOrUndefined Nothing), "SequenceNumberForOrdering": (NullOrUndefined Nothing) }
+newPutRecordInput' :: Data -> PartitionKey -> StreamName -> ( { "StreamName" :: (StreamName) , "Data" :: (Data) , "PartitionKey" :: (PartitionKey) , "ExplicitHashKey" :: Maybe (HashKey) , "SequenceNumberForOrdering" :: Maybe (SequenceNumber) } -> {"StreamName" :: (StreamName) , "Data" :: (Data) , "PartitionKey" :: (PartitionKey) , "ExplicitHashKey" :: Maybe (HashKey) , "SequenceNumberForOrdering" :: Maybe (SequenceNumber) } ) -> PutRecordInput
+newPutRecordInput' _Data _PartitionKey _StreamName customize = (PutRecordInput <<< customize) { "Data": _Data, "PartitionKey": _PartitionKey, "StreamName": _StreamName, "ExplicitHashKey": Nothing, "SequenceNumberForOrdering": Nothing }
 
 
 
@@ -1030,7 +1029,7 @@ newPutRecordInput' _Data _PartitionKey _StreamName customize = (PutRecordInput <
 newtype PutRecordOutput = PutRecordOutput 
   { "ShardId" :: (ShardId)
   , "SequenceNumber" :: (SequenceNumber)
-  , "EncryptionType" :: NullOrUndefined (EncryptionType)
+  , "EncryptionType" :: Maybe (EncryptionType)
   }
 derive instance newtypePutRecordOutput :: Newtype PutRecordOutput _
 derive instance repGenericPutRecordOutput :: Generic PutRecordOutput _
@@ -1040,12 +1039,12 @@ instance encodePutRecordOutput :: Encode PutRecordOutput where encode = genericE
 
 -- | Constructs PutRecordOutput from required parameters
 newPutRecordOutput :: SequenceNumber -> ShardId -> PutRecordOutput
-newPutRecordOutput _SequenceNumber _ShardId = PutRecordOutput { "SequenceNumber": _SequenceNumber, "ShardId": _ShardId, "EncryptionType": (NullOrUndefined Nothing) }
+newPutRecordOutput _SequenceNumber _ShardId = PutRecordOutput { "SequenceNumber": _SequenceNumber, "ShardId": _ShardId, "EncryptionType": Nothing }
 
 -- | Constructs PutRecordOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutRecordOutput' :: SequenceNumber -> ShardId -> ( { "ShardId" :: (ShardId) , "SequenceNumber" :: (SequenceNumber) , "EncryptionType" :: NullOrUndefined (EncryptionType) } -> {"ShardId" :: (ShardId) , "SequenceNumber" :: (SequenceNumber) , "EncryptionType" :: NullOrUndefined (EncryptionType) } ) -> PutRecordOutput
-newPutRecordOutput' _SequenceNumber _ShardId customize = (PutRecordOutput <<< customize) { "SequenceNumber": _SequenceNumber, "ShardId": _ShardId, "EncryptionType": (NullOrUndefined Nothing) }
+newPutRecordOutput' :: SequenceNumber -> ShardId -> ( { "ShardId" :: (ShardId) , "SequenceNumber" :: (SequenceNumber) , "EncryptionType" :: Maybe (EncryptionType) } -> {"ShardId" :: (ShardId) , "SequenceNumber" :: (SequenceNumber) , "EncryptionType" :: Maybe (EncryptionType) } ) -> PutRecordOutput
+newPutRecordOutput' _SequenceNumber _ShardId customize = (PutRecordOutput <<< customize) { "SequenceNumber": _SequenceNumber, "ShardId": _ShardId, "EncryptionType": Nothing }
 
 
 
@@ -1073,9 +1072,9 @@ newPutRecordsInput' _Records _StreamName customize = (PutRecordsInput <<< custom
 
 -- | <p> <code>PutRecords</code> results.</p>
 newtype PutRecordsOutput = PutRecordsOutput 
-  { "FailedRecordCount" :: NullOrUndefined (PositiveIntegerObject)
+  { "FailedRecordCount" :: Maybe (PositiveIntegerObject)
   , "Records" :: (PutRecordsResultEntryList)
-  , "EncryptionType" :: NullOrUndefined (EncryptionType)
+  , "EncryptionType" :: Maybe (EncryptionType)
   }
 derive instance newtypePutRecordsOutput :: Newtype PutRecordsOutput _
 derive instance repGenericPutRecordsOutput :: Generic PutRecordsOutput _
@@ -1085,19 +1084,19 @@ instance encodePutRecordsOutput :: Encode PutRecordsOutput where encode = generi
 
 -- | Constructs PutRecordsOutput from required parameters
 newPutRecordsOutput :: PutRecordsResultEntryList -> PutRecordsOutput
-newPutRecordsOutput _Records = PutRecordsOutput { "Records": _Records, "EncryptionType": (NullOrUndefined Nothing), "FailedRecordCount": (NullOrUndefined Nothing) }
+newPutRecordsOutput _Records = PutRecordsOutput { "Records": _Records, "EncryptionType": Nothing, "FailedRecordCount": Nothing }
 
 -- | Constructs PutRecordsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutRecordsOutput' :: PutRecordsResultEntryList -> ( { "FailedRecordCount" :: NullOrUndefined (PositiveIntegerObject) , "Records" :: (PutRecordsResultEntryList) , "EncryptionType" :: NullOrUndefined (EncryptionType) } -> {"FailedRecordCount" :: NullOrUndefined (PositiveIntegerObject) , "Records" :: (PutRecordsResultEntryList) , "EncryptionType" :: NullOrUndefined (EncryptionType) } ) -> PutRecordsOutput
-newPutRecordsOutput' _Records customize = (PutRecordsOutput <<< customize) { "Records": _Records, "EncryptionType": (NullOrUndefined Nothing), "FailedRecordCount": (NullOrUndefined Nothing) }
+newPutRecordsOutput' :: PutRecordsResultEntryList -> ( { "FailedRecordCount" :: Maybe (PositiveIntegerObject) , "Records" :: (PutRecordsResultEntryList) , "EncryptionType" :: Maybe (EncryptionType) } -> {"FailedRecordCount" :: Maybe (PositiveIntegerObject) , "Records" :: (PutRecordsResultEntryList) , "EncryptionType" :: Maybe (EncryptionType) } ) -> PutRecordsOutput
+newPutRecordsOutput' _Records customize = (PutRecordsOutput <<< customize) { "Records": _Records, "EncryptionType": Nothing, "FailedRecordCount": Nothing }
 
 
 
 -- | <p>Represents the output for <code>PutRecords</code>.</p>
 newtype PutRecordsRequestEntry = PutRecordsRequestEntry 
   { "Data" :: (Data)
-  , "ExplicitHashKey" :: NullOrUndefined (HashKey)
+  , "ExplicitHashKey" :: Maybe (HashKey)
   , "PartitionKey" :: (PartitionKey)
   }
 derive instance newtypePutRecordsRequestEntry :: Newtype PutRecordsRequestEntry _
@@ -1108,12 +1107,12 @@ instance encodePutRecordsRequestEntry :: Encode PutRecordsRequestEntry where enc
 
 -- | Constructs PutRecordsRequestEntry from required parameters
 newPutRecordsRequestEntry :: Data -> PartitionKey -> PutRecordsRequestEntry
-newPutRecordsRequestEntry _Data _PartitionKey = PutRecordsRequestEntry { "Data": _Data, "PartitionKey": _PartitionKey, "ExplicitHashKey": (NullOrUndefined Nothing) }
+newPutRecordsRequestEntry _Data _PartitionKey = PutRecordsRequestEntry { "Data": _Data, "PartitionKey": _PartitionKey, "ExplicitHashKey": Nothing }
 
 -- | Constructs PutRecordsRequestEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutRecordsRequestEntry' :: Data -> PartitionKey -> ( { "Data" :: (Data) , "ExplicitHashKey" :: NullOrUndefined (HashKey) , "PartitionKey" :: (PartitionKey) } -> {"Data" :: (Data) , "ExplicitHashKey" :: NullOrUndefined (HashKey) , "PartitionKey" :: (PartitionKey) } ) -> PutRecordsRequestEntry
-newPutRecordsRequestEntry' _Data _PartitionKey customize = (PutRecordsRequestEntry <<< customize) { "Data": _Data, "PartitionKey": _PartitionKey, "ExplicitHashKey": (NullOrUndefined Nothing) }
+newPutRecordsRequestEntry' :: Data -> PartitionKey -> ( { "Data" :: (Data) , "ExplicitHashKey" :: Maybe (HashKey) , "PartitionKey" :: (PartitionKey) } -> {"Data" :: (Data) , "ExplicitHashKey" :: Maybe (HashKey) , "PartitionKey" :: (PartitionKey) } ) -> PutRecordsRequestEntry
+newPutRecordsRequestEntry' _Data _PartitionKey customize = (PutRecordsRequestEntry <<< customize) { "Data": _Data, "PartitionKey": _PartitionKey, "ExplicitHashKey": Nothing }
 
 
 
@@ -1128,10 +1127,10 @@ instance encodePutRecordsRequestEntryList :: Encode PutRecordsRequestEntryList w
 
 -- | <p>Represents the result of an individual record from a <code>PutRecords</code> request. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to the stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.</p>
 newtype PutRecordsResultEntry = PutRecordsResultEntry 
-  { "SequenceNumber" :: NullOrUndefined (SequenceNumber)
-  , "ShardId" :: NullOrUndefined (ShardId)
-  , "ErrorCode" :: NullOrUndefined (ErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (ErrorMessage)
+  { "SequenceNumber" :: Maybe (SequenceNumber)
+  , "ShardId" :: Maybe (ShardId)
+  , "ErrorCode" :: Maybe (ErrorCode)
+  , "ErrorMessage" :: Maybe (ErrorMessage)
   }
 derive instance newtypePutRecordsResultEntry :: Newtype PutRecordsResultEntry _
 derive instance repGenericPutRecordsResultEntry :: Generic PutRecordsResultEntry _
@@ -1141,12 +1140,12 @@ instance encodePutRecordsResultEntry :: Encode PutRecordsResultEntry where encod
 
 -- | Constructs PutRecordsResultEntry from required parameters
 newPutRecordsResultEntry :: PutRecordsResultEntry
-newPutRecordsResultEntry  = PutRecordsResultEntry { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "SequenceNumber": (NullOrUndefined Nothing), "ShardId": (NullOrUndefined Nothing) }
+newPutRecordsResultEntry  = PutRecordsResultEntry { "ErrorCode": Nothing, "ErrorMessage": Nothing, "SequenceNumber": Nothing, "ShardId": Nothing }
 
 -- | Constructs PutRecordsResultEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutRecordsResultEntry' :: ( { "SequenceNumber" :: NullOrUndefined (SequenceNumber) , "ShardId" :: NullOrUndefined (ShardId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> {"SequenceNumber" :: NullOrUndefined (SequenceNumber) , "ShardId" :: NullOrUndefined (ShardId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } ) -> PutRecordsResultEntry
-newPutRecordsResultEntry'  customize = (PutRecordsResultEntry <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "SequenceNumber": (NullOrUndefined Nothing), "ShardId": (NullOrUndefined Nothing) }
+newPutRecordsResultEntry' :: ( { "SequenceNumber" :: Maybe (SequenceNumber) , "ShardId" :: Maybe (ShardId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } -> {"SequenceNumber" :: Maybe (SequenceNumber) , "ShardId" :: Maybe (ShardId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } ) -> PutRecordsResultEntry
+newPutRecordsResultEntry'  customize = (PutRecordsResultEntry <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "SequenceNumber": Nothing, "ShardId": Nothing }
 
 
 
@@ -1162,10 +1161,10 @@ instance encodePutRecordsResultEntryList :: Encode PutRecordsResultEntryList whe
 -- | <p>The unit of data of the Kinesis data stream, which is composed of a sequence number, a partition key, and a data blob.</p>
 newtype Record'' = Record'' 
   { "SequenceNumber" :: (SequenceNumber)
-  , "ApproximateArrivalTimestamp" :: NullOrUndefined (Types.Timestamp)
+  , "ApproximateArrivalTimestamp" :: Maybe (Types.Timestamp)
   , "Data" :: (Data)
   , "PartitionKey" :: (PartitionKey)
-  , "EncryptionType" :: NullOrUndefined (EncryptionType)
+  , "EncryptionType" :: Maybe (EncryptionType)
   }
 derive instance newtypeRecord'' :: Newtype Record'' _
 derive instance repGenericRecord'' :: Generic Record'' _
@@ -1175,12 +1174,12 @@ instance encodeRecord'' :: Encode Record'' where encode = genericEncode options
 
 -- | Constructs Record'' from required parameters
 newRecord'' :: Data -> PartitionKey -> SequenceNumber -> Record''
-newRecord'' _Data _PartitionKey _SequenceNumber = Record'' { "Data": _Data, "PartitionKey": _PartitionKey, "SequenceNumber": _SequenceNumber, "ApproximateArrivalTimestamp": (NullOrUndefined Nothing), "EncryptionType": (NullOrUndefined Nothing) }
+newRecord'' _Data _PartitionKey _SequenceNumber = Record'' { "Data": _Data, "PartitionKey": _PartitionKey, "SequenceNumber": _SequenceNumber, "ApproximateArrivalTimestamp": Nothing, "EncryptionType": Nothing }
 
 -- | Constructs Record'''s fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRecord''' :: Data -> PartitionKey -> SequenceNumber -> ( { "SequenceNumber" :: (SequenceNumber) , "ApproximateArrivalTimestamp" :: NullOrUndefined (Types.Timestamp) , "Data" :: (Data) , "PartitionKey" :: (PartitionKey) , "EncryptionType" :: NullOrUndefined (EncryptionType) } -> {"SequenceNumber" :: (SequenceNumber) , "ApproximateArrivalTimestamp" :: NullOrUndefined (Types.Timestamp) , "Data" :: (Data) , "PartitionKey" :: (PartitionKey) , "EncryptionType" :: NullOrUndefined (EncryptionType) } ) -> Record''
-newRecord''' _Data _PartitionKey _SequenceNumber customize = (Record'' <<< customize) { "Data": _Data, "PartitionKey": _PartitionKey, "SequenceNumber": _SequenceNumber, "ApproximateArrivalTimestamp": (NullOrUndefined Nothing), "EncryptionType": (NullOrUndefined Nothing) }
+newRecord''' :: Data -> PartitionKey -> SequenceNumber -> ( { "SequenceNumber" :: (SequenceNumber) , "ApproximateArrivalTimestamp" :: Maybe (Types.Timestamp) , "Data" :: (Data) , "PartitionKey" :: (PartitionKey) , "EncryptionType" :: Maybe (EncryptionType) } -> {"SequenceNumber" :: (SequenceNumber) , "ApproximateArrivalTimestamp" :: Maybe (Types.Timestamp) , "Data" :: (Data) , "PartitionKey" :: (PartitionKey) , "EncryptionType" :: Maybe (EncryptionType) } ) -> Record''
+newRecord''' _Data _PartitionKey _SequenceNumber customize = (Record'' <<< customize) { "Data": _Data, "PartitionKey": _PartitionKey, "SequenceNumber": _SequenceNumber, "ApproximateArrivalTimestamp": Nothing, "EncryptionType": Nothing }
 
 
 
@@ -1217,7 +1216,7 @@ newRemoveTagsFromStreamInput' _StreamName _TagKeys customize = (RemoveTagsFromSt
 
 -- | <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
 newtype ResourceInUseException = ResourceInUseException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceInUseException :: Newtype ResourceInUseException _
 derive instance repGenericResourceInUseException :: Generic ResourceInUseException _
@@ -1227,18 +1226,18 @@ instance encodeResourceInUseException :: Encode ResourceInUseException where enc
 
 -- | Constructs ResourceInUseException from required parameters
 newResourceInUseException :: ResourceInUseException
-newResourceInUseException  = ResourceInUseException { "message": (NullOrUndefined Nothing) }
+newResourceInUseException  = ResourceInUseException { "message": Nothing }
 
 -- | Constructs ResourceInUseException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceInUseException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceInUseException
-newResourceInUseException'  customize = (ResourceInUseException <<< customize) { "message": (NullOrUndefined Nothing) }
+newResourceInUseException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ResourceInUseException
+newResourceInUseException'  customize = (ResourceInUseException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The requested resource could not be found. The stream might not be specified correctly.</p>
 newtype ResourceNotFoundException = ResourceNotFoundException 
-  { "message" :: NullOrUndefined (ErrorMessage)
+  { "message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceNotFoundException :: Newtype ResourceNotFoundException _
 derive instance repGenericResourceNotFoundException :: Generic ResourceNotFoundException _
@@ -1248,12 +1247,12 @@ instance encodeResourceNotFoundException :: Encode ResourceNotFoundException whe
 
 -- | Constructs ResourceNotFoundException from required parameters
 newResourceNotFoundException :: ResourceNotFoundException
-newResourceNotFoundException  = ResourceNotFoundException { "message": (NullOrUndefined Nothing) }
+newResourceNotFoundException  = ResourceNotFoundException { "message": Nothing }
 
 -- | Constructs ResourceNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceNotFoundException' :: ( { "message" :: NullOrUndefined (ErrorMessage) } -> {"message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceNotFoundException
-newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "message": (NullOrUndefined Nothing) }
+newResourceNotFoundException' :: ( { "message" :: Maybe (ErrorMessage) } -> {"message" :: Maybe (ErrorMessage) } ) -> ResourceNotFoundException
+newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "message": Nothing }
 
 
 
@@ -1287,7 +1286,7 @@ instance encodeSequenceNumber :: Encode SequenceNumber where encode = genericEnc
 -- | <p>The range of possible sequence numbers for the shard.</p>
 newtype SequenceNumberRange = SequenceNumberRange 
   { "StartingSequenceNumber" :: (SequenceNumber)
-  , "EndingSequenceNumber" :: NullOrUndefined (SequenceNumber)
+  , "EndingSequenceNumber" :: Maybe (SequenceNumber)
   }
 derive instance newtypeSequenceNumberRange :: Newtype SequenceNumberRange _
 derive instance repGenericSequenceNumberRange :: Generic SequenceNumberRange _
@@ -1297,20 +1296,20 @@ instance encodeSequenceNumberRange :: Encode SequenceNumberRange where encode = 
 
 -- | Constructs SequenceNumberRange from required parameters
 newSequenceNumberRange :: SequenceNumber -> SequenceNumberRange
-newSequenceNumberRange _StartingSequenceNumber = SequenceNumberRange { "StartingSequenceNumber": _StartingSequenceNumber, "EndingSequenceNumber": (NullOrUndefined Nothing) }
+newSequenceNumberRange _StartingSequenceNumber = SequenceNumberRange { "StartingSequenceNumber": _StartingSequenceNumber, "EndingSequenceNumber": Nothing }
 
 -- | Constructs SequenceNumberRange's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSequenceNumberRange' :: SequenceNumber -> ( { "StartingSequenceNumber" :: (SequenceNumber) , "EndingSequenceNumber" :: NullOrUndefined (SequenceNumber) } -> {"StartingSequenceNumber" :: (SequenceNumber) , "EndingSequenceNumber" :: NullOrUndefined (SequenceNumber) } ) -> SequenceNumberRange
-newSequenceNumberRange' _StartingSequenceNumber customize = (SequenceNumberRange <<< customize) { "StartingSequenceNumber": _StartingSequenceNumber, "EndingSequenceNumber": (NullOrUndefined Nothing) }
+newSequenceNumberRange' :: SequenceNumber -> ( { "StartingSequenceNumber" :: (SequenceNumber) , "EndingSequenceNumber" :: Maybe (SequenceNumber) } -> {"StartingSequenceNumber" :: (SequenceNumber) , "EndingSequenceNumber" :: Maybe (SequenceNumber) } ) -> SequenceNumberRange
+newSequenceNumberRange' _StartingSequenceNumber customize = (SequenceNumberRange <<< customize) { "StartingSequenceNumber": _StartingSequenceNumber, "EndingSequenceNumber": Nothing }
 
 
 
 -- | <p>A uniquely identified group of data records in a Kinesis data stream.</p>
 newtype Shard = Shard 
   { "ShardId" :: (ShardId)
-  , "ParentShardId" :: NullOrUndefined (ShardId)
-  , "AdjacentParentShardId" :: NullOrUndefined (ShardId)
+  , "ParentShardId" :: Maybe (ShardId)
+  , "AdjacentParentShardId" :: Maybe (ShardId)
   , "HashKeyRange" :: (HashKeyRange)
   , "SequenceNumberRange" :: (SequenceNumberRange)
   }
@@ -1322,12 +1321,12 @@ instance encodeShard :: Encode Shard where encode = genericEncode options
 
 -- | Constructs Shard from required parameters
 newShard :: HashKeyRange -> SequenceNumberRange -> ShardId -> Shard
-newShard _HashKeyRange _SequenceNumberRange _ShardId = Shard { "HashKeyRange": _HashKeyRange, "SequenceNumberRange": _SequenceNumberRange, "ShardId": _ShardId, "AdjacentParentShardId": (NullOrUndefined Nothing), "ParentShardId": (NullOrUndefined Nothing) }
+newShard _HashKeyRange _SequenceNumberRange _ShardId = Shard { "HashKeyRange": _HashKeyRange, "SequenceNumberRange": _SequenceNumberRange, "ShardId": _ShardId, "AdjacentParentShardId": Nothing, "ParentShardId": Nothing }
 
 -- | Constructs Shard's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newShard' :: HashKeyRange -> SequenceNumberRange -> ShardId -> ( { "ShardId" :: (ShardId) , "ParentShardId" :: NullOrUndefined (ShardId) , "AdjacentParentShardId" :: NullOrUndefined (ShardId) , "HashKeyRange" :: (HashKeyRange) , "SequenceNumberRange" :: (SequenceNumberRange) } -> {"ShardId" :: (ShardId) , "ParentShardId" :: NullOrUndefined (ShardId) , "AdjacentParentShardId" :: NullOrUndefined (ShardId) , "HashKeyRange" :: (HashKeyRange) , "SequenceNumberRange" :: (SequenceNumberRange) } ) -> Shard
-newShard' _HashKeyRange _SequenceNumberRange _ShardId customize = (Shard <<< customize) { "HashKeyRange": _HashKeyRange, "SequenceNumberRange": _SequenceNumberRange, "ShardId": _ShardId, "AdjacentParentShardId": (NullOrUndefined Nothing), "ParentShardId": (NullOrUndefined Nothing) }
+newShard' :: HashKeyRange -> SequenceNumberRange -> ShardId -> ( { "ShardId" :: (ShardId) , "ParentShardId" :: Maybe (ShardId) , "AdjacentParentShardId" :: Maybe (ShardId) , "HashKeyRange" :: (HashKeyRange) , "SequenceNumberRange" :: (SequenceNumberRange) } -> {"ShardId" :: (ShardId) , "ParentShardId" :: Maybe (ShardId) , "AdjacentParentShardId" :: Maybe (ShardId) , "HashKeyRange" :: (HashKeyRange) , "SequenceNumberRange" :: (SequenceNumberRange) } ) -> Shard
+newShard' _HashKeyRange _SequenceNumberRange _ShardId customize = (Shard <<< customize) { "HashKeyRange": _HashKeyRange, "SequenceNumberRange": _SequenceNumberRange, "ShardId": _ShardId, "AdjacentParentShardId": Nothing, "ParentShardId": Nothing }
 
 
 
@@ -1462,8 +1461,8 @@ newtype StreamDescription = StreamDescription
   , "RetentionPeriodHours" :: (RetentionPeriodHours)
   , "StreamCreationTimestamp" :: (Types.Timestamp)
   , "EnhancedMonitoring" :: (EnhancedMonitoringList)
-  , "EncryptionType" :: NullOrUndefined (EncryptionType)
-  , "KeyId" :: NullOrUndefined (KeyId)
+  , "EncryptionType" :: Maybe (EncryptionType)
+  , "KeyId" :: Maybe (KeyId)
   }
 derive instance newtypeStreamDescription :: Newtype StreamDescription _
 derive instance repGenericStreamDescription :: Generic StreamDescription _
@@ -1473,12 +1472,12 @@ instance encodeStreamDescription :: Encode StreamDescription where encode = gene
 
 -- | Constructs StreamDescription from required parameters
 newStreamDescription :: EnhancedMonitoringList -> BooleanObject -> RetentionPeriodHours -> ShardList -> StreamARN -> Types.Timestamp -> StreamName -> StreamStatus -> StreamDescription
-newStreamDescription _EnhancedMonitoring _HasMoreShards _RetentionPeriodHours _Shards _StreamARN _StreamCreationTimestamp _StreamName _StreamStatus = StreamDescription { "EnhancedMonitoring": _EnhancedMonitoring, "HasMoreShards": _HasMoreShards, "RetentionPeriodHours": _RetentionPeriodHours, "Shards": _Shards, "StreamARN": _StreamARN, "StreamCreationTimestamp": _StreamCreationTimestamp, "StreamName": _StreamName, "StreamStatus": _StreamStatus, "EncryptionType": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newStreamDescription _EnhancedMonitoring _HasMoreShards _RetentionPeriodHours _Shards _StreamARN _StreamCreationTimestamp _StreamName _StreamStatus = StreamDescription { "EnhancedMonitoring": _EnhancedMonitoring, "HasMoreShards": _HasMoreShards, "RetentionPeriodHours": _RetentionPeriodHours, "Shards": _Shards, "StreamARN": _StreamARN, "StreamCreationTimestamp": _StreamCreationTimestamp, "StreamName": _StreamName, "StreamStatus": _StreamStatus, "EncryptionType": Nothing, "KeyId": Nothing }
 
 -- | Constructs StreamDescription's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStreamDescription' :: EnhancedMonitoringList -> BooleanObject -> RetentionPeriodHours -> ShardList -> StreamARN -> Types.Timestamp -> StreamName -> StreamStatus -> ( { "StreamName" :: (StreamName) , "StreamARN" :: (StreamARN) , "StreamStatus" :: (StreamStatus) , "Shards" :: (ShardList) , "HasMoreShards" :: (BooleanObject) , "RetentionPeriodHours" :: (RetentionPeriodHours) , "StreamCreationTimestamp" :: (Types.Timestamp) , "EnhancedMonitoring" :: (EnhancedMonitoringList) , "EncryptionType" :: NullOrUndefined (EncryptionType) , "KeyId" :: NullOrUndefined (KeyId) } -> {"StreamName" :: (StreamName) , "StreamARN" :: (StreamARN) , "StreamStatus" :: (StreamStatus) , "Shards" :: (ShardList) , "HasMoreShards" :: (BooleanObject) , "RetentionPeriodHours" :: (RetentionPeriodHours) , "StreamCreationTimestamp" :: (Types.Timestamp) , "EnhancedMonitoring" :: (EnhancedMonitoringList) , "EncryptionType" :: NullOrUndefined (EncryptionType) , "KeyId" :: NullOrUndefined (KeyId) } ) -> StreamDescription
-newStreamDescription' _EnhancedMonitoring _HasMoreShards _RetentionPeriodHours _Shards _StreamARN _StreamCreationTimestamp _StreamName _StreamStatus customize = (StreamDescription <<< customize) { "EnhancedMonitoring": _EnhancedMonitoring, "HasMoreShards": _HasMoreShards, "RetentionPeriodHours": _RetentionPeriodHours, "Shards": _Shards, "StreamARN": _StreamARN, "StreamCreationTimestamp": _StreamCreationTimestamp, "StreamName": _StreamName, "StreamStatus": _StreamStatus, "EncryptionType": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newStreamDescription' :: EnhancedMonitoringList -> BooleanObject -> RetentionPeriodHours -> ShardList -> StreamARN -> Types.Timestamp -> StreamName -> StreamStatus -> ( { "StreamName" :: (StreamName) , "StreamARN" :: (StreamARN) , "StreamStatus" :: (StreamStatus) , "Shards" :: (ShardList) , "HasMoreShards" :: (BooleanObject) , "RetentionPeriodHours" :: (RetentionPeriodHours) , "StreamCreationTimestamp" :: (Types.Timestamp) , "EnhancedMonitoring" :: (EnhancedMonitoringList) , "EncryptionType" :: Maybe (EncryptionType) , "KeyId" :: Maybe (KeyId) } -> {"StreamName" :: (StreamName) , "StreamARN" :: (StreamARN) , "StreamStatus" :: (StreamStatus) , "Shards" :: (ShardList) , "HasMoreShards" :: (BooleanObject) , "RetentionPeriodHours" :: (RetentionPeriodHours) , "StreamCreationTimestamp" :: (Types.Timestamp) , "EnhancedMonitoring" :: (EnhancedMonitoringList) , "EncryptionType" :: Maybe (EncryptionType) , "KeyId" :: Maybe (KeyId) } ) -> StreamDescription
+newStreamDescription' _EnhancedMonitoring _HasMoreShards _RetentionPeriodHours _Shards _StreamARN _StreamCreationTimestamp _StreamName _StreamStatus customize = (StreamDescription <<< customize) { "EnhancedMonitoring": _EnhancedMonitoring, "HasMoreShards": _HasMoreShards, "RetentionPeriodHours": _RetentionPeriodHours, "Shards": _Shards, "StreamARN": _StreamARN, "StreamCreationTimestamp": _StreamCreationTimestamp, "StreamName": _StreamName, "StreamStatus": _StreamStatus, "EncryptionType": Nothing, "KeyId": Nothing }
 
 
 
@@ -1490,8 +1489,8 @@ newtype StreamDescriptionSummary = StreamDescriptionSummary
   , "RetentionPeriodHours" :: (PositiveIntegerObject)
   , "StreamCreationTimestamp" :: (Types.Timestamp)
   , "EnhancedMonitoring" :: (EnhancedMonitoringList)
-  , "EncryptionType" :: NullOrUndefined (EncryptionType)
-  , "KeyId" :: NullOrUndefined (KeyId)
+  , "EncryptionType" :: Maybe (EncryptionType)
+  , "KeyId" :: Maybe (KeyId)
   , "OpenShardCount" :: (ShardCountObject)
   }
 derive instance newtypeStreamDescriptionSummary :: Newtype StreamDescriptionSummary _
@@ -1502,12 +1501,12 @@ instance encodeStreamDescriptionSummary :: Encode StreamDescriptionSummary where
 
 -- | Constructs StreamDescriptionSummary from required parameters
 newStreamDescriptionSummary :: EnhancedMonitoringList -> ShardCountObject -> PositiveIntegerObject -> StreamARN -> Types.Timestamp -> StreamName -> StreamStatus -> StreamDescriptionSummary
-newStreamDescriptionSummary _EnhancedMonitoring _OpenShardCount _RetentionPeriodHours _StreamARN _StreamCreationTimestamp _StreamName _StreamStatus = StreamDescriptionSummary { "EnhancedMonitoring": _EnhancedMonitoring, "OpenShardCount": _OpenShardCount, "RetentionPeriodHours": _RetentionPeriodHours, "StreamARN": _StreamARN, "StreamCreationTimestamp": _StreamCreationTimestamp, "StreamName": _StreamName, "StreamStatus": _StreamStatus, "EncryptionType": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newStreamDescriptionSummary _EnhancedMonitoring _OpenShardCount _RetentionPeriodHours _StreamARN _StreamCreationTimestamp _StreamName _StreamStatus = StreamDescriptionSummary { "EnhancedMonitoring": _EnhancedMonitoring, "OpenShardCount": _OpenShardCount, "RetentionPeriodHours": _RetentionPeriodHours, "StreamARN": _StreamARN, "StreamCreationTimestamp": _StreamCreationTimestamp, "StreamName": _StreamName, "StreamStatus": _StreamStatus, "EncryptionType": Nothing, "KeyId": Nothing }
 
 -- | Constructs StreamDescriptionSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStreamDescriptionSummary' :: EnhancedMonitoringList -> ShardCountObject -> PositiveIntegerObject -> StreamARN -> Types.Timestamp -> StreamName -> StreamStatus -> ( { "StreamName" :: (StreamName) , "StreamARN" :: (StreamARN) , "StreamStatus" :: (StreamStatus) , "RetentionPeriodHours" :: (PositiveIntegerObject) , "StreamCreationTimestamp" :: (Types.Timestamp) , "EnhancedMonitoring" :: (EnhancedMonitoringList) , "EncryptionType" :: NullOrUndefined (EncryptionType) , "KeyId" :: NullOrUndefined (KeyId) , "OpenShardCount" :: (ShardCountObject) } -> {"StreamName" :: (StreamName) , "StreamARN" :: (StreamARN) , "StreamStatus" :: (StreamStatus) , "RetentionPeriodHours" :: (PositiveIntegerObject) , "StreamCreationTimestamp" :: (Types.Timestamp) , "EnhancedMonitoring" :: (EnhancedMonitoringList) , "EncryptionType" :: NullOrUndefined (EncryptionType) , "KeyId" :: NullOrUndefined (KeyId) , "OpenShardCount" :: (ShardCountObject) } ) -> StreamDescriptionSummary
-newStreamDescriptionSummary' _EnhancedMonitoring _OpenShardCount _RetentionPeriodHours _StreamARN _StreamCreationTimestamp _StreamName _StreamStatus customize = (StreamDescriptionSummary <<< customize) { "EnhancedMonitoring": _EnhancedMonitoring, "OpenShardCount": _OpenShardCount, "RetentionPeriodHours": _RetentionPeriodHours, "StreamARN": _StreamARN, "StreamCreationTimestamp": _StreamCreationTimestamp, "StreamName": _StreamName, "StreamStatus": _StreamStatus, "EncryptionType": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newStreamDescriptionSummary' :: EnhancedMonitoringList -> ShardCountObject -> PositiveIntegerObject -> StreamARN -> Types.Timestamp -> StreamName -> StreamStatus -> ( { "StreamName" :: (StreamName) , "StreamARN" :: (StreamARN) , "StreamStatus" :: (StreamStatus) , "RetentionPeriodHours" :: (PositiveIntegerObject) , "StreamCreationTimestamp" :: (Types.Timestamp) , "EnhancedMonitoring" :: (EnhancedMonitoringList) , "EncryptionType" :: Maybe (EncryptionType) , "KeyId" :: Maybe (KeyId) , "OpenShardCount" :: (ShardCountObject) } -> {"StreamName" :: (StreamName) , "StreamARN" :: (StreamARN) , "StreamStatus" :: (StreamStatus) , "RetentionPeriodHours" :: (PositiveIntegerObject) , "StreamCreationTimestamp" :: (Types.Timestamp) , "EnhancedMonitoring" :: (EnhancedMonitoringList) , "EncryptionType" :: Maybe (EncryptionType) , "KeyId" :: Maybe (KeyId) , "OpenShardCount" :: (ShardCountObject) } ) -> StreamDescriptionSummary
+newStreamDescriptionSummary' _EnhancedMonitoring _OpenShardCount _RetentionPeriodHours _StreamARN _StreamCreationTimestamp _StreamName _StreamStatus customize = (StreamDescriptionSummary <<< customize) { "EnhancedMonitoring": _EnhancedMonitoring, "OpenShardCount": _OpenShardCount, "RetentionPeriodHours": _RetentionPeriodHours, "StreamARN": _StreamARN, "StreamCreationTimestamp": _StreamCreationTimestamp, "StreamName": _StreamName, "StreamStatus": _StreamStatus, "EncryptionType": Nothing, "KeyId": Nothing }
 
 
 
@@ -1541,7 +1540,7 @@ instance encodeStreamStatus :: Encode StreamStatus where encode = genericEncode 
 -- | <p>Metadata assigned to the stream, consisting of a key-value pair.</p>
 newtype Tag = Tag 
   { "Key" :: (TagKey)
-  , "Value" :: NullOrUndefined (TagValue)
+  , "Value" :: Maybe (TagValue)
   }
 derive instance newtypeTag :: Newtype Tag _
 derive instance repGenericTag :: Generic Tag _
@@ -1551,12 +1550,12 @@ instance encodeTag :: Encode Tag where encode = genericEncode options
 
 -- | Constructs Tag from required parameters
 newTag :: TagKey -> Tag
-newTag _Key = Tag { "Key": _Key, "Value": (NullOrUndefined Nothing) }
+newTag _Key = Tag { "Key": _Key, "Value": Nothing }
 
 -- | Constructs Tag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTag' :: TagKey -> ( { "Key" :: (TagKey) , "Value" :: NullOrUndefined (TagValue) } -> {"Key" :: (TagKey) , "Value" :: NullOrUndefined (TagValue) } ) -> Tag
-newTag' _Key customize = (Tag <<< customize) { "Key": _Key, "Value": (NullOrUndefined Nothing) }
+newTag' :: TagKey -> ( { "Key" :: (TagKey) , "Value" :: Maybe (TagValue) } -> {"Key" :: (TagKey) , "Value" :: Maybe (TagValue) } ) -> Tag
+newTag' _Key customize = (Tag <<< customize) { "Key": _Key, "Value": Nothing }
 
 
 
@@ -1628,9 +1627,9 @@ newUpdateShardCountInput' _ScalingType _StreamName _TargetShardCount customize =
 
 
 newtype UpdateShardCountOutput = UpdateShardCountOutput 
-  { "StreamName" :: NullOrUndefined (StreamName)
-  , "CurrentShardCount" :: NullOrUndefined (PositiveIntegerObject)
-  , "TargetShardCount" :: NullOrUndefined (PositiveIntegerObject)
+  { "StreamName" :: Maybe (StreamName)
+  , "CurrentShardCount" :: Maybe (PositiveIntegerObject)
+  , "TargetShardCount" :: Maybe (PositiveIntegerObject)
   }
 derive instance newtypeUpdateShardCountOutput :: Newtype UpdateShardCountOutput _
 derive instance repGenericUpdateShardCountOutput :: Generic UpdateShardCountOutput _
@@ -1640,10 +1639,10 @@ instance encodeUpdateShardCountOutput :: Encode UpdateShardCountOutput where enc
 
 -- | Constructs UpdateShardCountOutput from required parameters
 newUpdateShardCountOutput :: UpdateShardCountOutput
-newUpdateShardCountOutput  = UpdateShardCountOutput { "CurrentShardCount": (NullOrUndefined Nothing), "StreamName": (NullOrUndefined Nothing), "TargetShardCount": (NullOrUndefined Nothing) }
+newUpdateShardCountOutput  = UpdateShardCountOutput { "CurrentShardCount": Nothing, "StreamName": Nothing, "TargetShardCount": Nothing }
 
 -- | Constructs UpdateShardCountOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateShardCountOutput' :: ( { "StreamName" :: NullOrUndefined (StreamName) , "CurrentShardCount" :: NullOrUndefined (PositiveIntegerObject) , "TargetShardCount" :: NullOrUndefined (PositiveIntegerObject) } -> {"StreamName" :: NullOrUndefined (StreamName) , "CurrentShardCount" :: NullOrUndefined (PositiveIntegerObject) , "TargetShardCount" :: NullOrUndefined (PositiveIntegerObject) } ) -> UpdateShardCountOutput
-newUpdateShardCountOutput'  customize = (UpdateShardCountOutput <<< customize) { "CurrentShardCount": (NullOrUndefined Nothing), "StreamName": (NullOrUndefined Nothing), "TargetShardCount": (NullOrUndefined Nothing) }
+newUpdateShardCountOutput' :: ( { "StreamName" :: Maybe (StreamName) , "CurrentShardCount" :: Maybe (PositiveIntegerObject) , "TargetShardCount" :: Maybe (PositiveIntegerObject) } -> {"StreamName" :: Maybe (StreamName) , "CurrentShardCount" :: Maybe (PositiveIntegerObject) , "TargetShardCount" :: Maybe (PositiveIntegerObject) } ) -> UpdateShardCountOutput
+newUpdateShardCountOutput'  customize = (UpdateShardCountOutput <<< customize) { "CurrentShardCount": Nothing, "StreamName": Nothing, "TargetShardCount": Nothing }
 
